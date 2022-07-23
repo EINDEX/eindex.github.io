@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+  
+
+
+
+
+
+<head>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://preview.blog-2j7.pages.dev/feed.xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="author" itemprop="author" content="EINDEX">
+  
+  <title>基本排序算法的Python实现 &bull; EINDEX&#x27;s Blog</title>
+  <meta property="og:title" content="基本排序算法的Python实现 &bull; EINDEX&#x27;s Blog" />
+  
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+
+
+  <!-- **** BEGINNING, favicons **** -->
+
+  <!-- generics -->
+
+  <!-- iOS -->
+
+  <!-- Android -->
+
+  <!-- Windows 8, IE 10 -->
+
+  <!-- Windows 8.1 and up, IE 11 -->
+
+  <!-- **** CONCLUSION, favicons **** -->
+
+  <!-- CSS/SCSS -->
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" />  <style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style>
+  
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f">
+
+  <link rel="webmention" href="https://webmention.io/eindex.me/webmention" />
+  <link rel="pingback" href="https://webmention.io/eindex.me/xmlrpc" />
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+
+  
+    
+  
+
+  
+    
+  
+    
+  
+
+
+
+
+
+<meta property="og:url" content="https://preview.blog-2j7.pages.dev/posts/sort-in-python/">
+<meta property="og:site_name" content="EINDEX&#x27;s Blog">
+<meta property="og:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基本排序算法的Python实现 &bull; EINDEX&#x27;s Blog">
+
+<meta name="twitter:site" content="@eindex_li">
+<meta name="twitter:creator" content="@eindex_li">
+<meta name="twitter:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "基本排序算法的Python实现",
+      "image": "https://preview.blog-2j7.pages.dev/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://preview.blog-2j7.pages.dev/posts/sort-in-python/"
+      },
+      
+      "datePublished": "2017-10-05",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://preview.blog-2j7.pages.dev/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://preview.blog-2j7.pages.dev/images/avatar.png"
+      },
+      "keywords": ["算法","Python","Sort"]
+    }
+</script>
+
+  
+  
+  
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="items">
+      <li>
+        
+        <a class="site-link" href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;"><img
+            class="avatar"
+            src="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;processed_images&#x2F;985d495e6e585ad000.png"
+            alt="Workflow"
+        /><span class="site-name">EINDEX&#x27;s Blog</span></a>
+      </li>
+      <li class="delimiter"></li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/archive/"
+          >归档</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/links/"
+          >友链</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/about/"
+          >关于</a
+        >
+      </li>
+      
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <main>
+            
+  <article data-clarity-region="article">
+    
+<section class="header">
+<section class="title-area">
+    
+    <h1 class="title">  
+    <a href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;posts&#x2F;sort-in-python&#x2F;">基本排序算法的Python实现</a>
+    </h1>
+  </section>
+  <section class="meta-area">
+  
+    <span><i class="far fa-calendar-days"></i><time>2017-10-05</time></span>
+  
+  
+    
+    
+    <a class="categories"  href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;categories&#x2F;suan-fa&#x2F;"><i class="fa-solid fa-inbox"></i>算法</a>
+  
+    <span><i class="fas fa-clock"></i> 16 mins</span>
+  </section>
+</section>
+
+    <section class="main">
+        
+        <p>本篇主要实现九(八）大排序算法，分别是冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序,计数排序。希望大家回顾知识的时候也能从我的这篇文章得到帮助。</p>
+<span id="continue-reading"></span>
+<p><strong>为了防止误导读者，本文所有概念性内容均截取自对应Wiki</strong></p>
+<h2 id="冒泡排序">冒泡排序</h2>
+<h3 id="原理">原理</h3>
+<p>冒泡排序(Bubble Sort)是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<h3 id="步骤">步骤</h3>
+<p>冒泡排序算法的运作如下：</p>
+<ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<h3 id="代码">代码</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">bubble_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    length </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>)
+</span><span>    </span><span style="color:#75715e;"># 第一级遍历
+</span><span>    </span><span style="color:#f92672;">for </span><span>index </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(length):
+</span><span>        </span><span style="color:#75715e;"># 第二级遍历
+</span><span>        </span><span style="color:#f92672;">for </span><span>j </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#ae81ff;">1</span><span>, length </span><span style="color:#f92672;">- </span><span>index):
+</span><span>            </span><span style="color:#f92672;">if </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>] </span><span style="color:#f92672;">&gt; </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j]:
+</span><span>                </span><span style="color:#75715e;"># 交换两者数据，这里没用temp是因为python 特性元组。
+</span><span>                </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>], </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j] </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j], </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>]
+</span><span>    </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span></code></pre>
+<p>这种排序其实还可以稍微优化一下，添加一个标记，在排序已完成时，停止排序。</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">bubble_sort_flag</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    length </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>)
+</span><span>    </span><span style="color:#f92672;">for </span><span>index </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(length):
+</span><span>        </span><span style="color:#75715e;"># 标志位
+</span><span>        flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">True
+</span><span>        </span><span style="color:#f92672;">for </span><span>j </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#ae81ff;">1</span><span>, length </span><span style="color:#f92672;">- </span><span>index):
+</span><span>            </span><span style="color:#f92672;">if </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>] </span><span style="color:#f92672;">&gt; </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j]:
+</span><span>                </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>], </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j] </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j], </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>]
+</span><span>                flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">False
+</span><span>        </span><span style="color:#f92672;">if </span><span>flag:
+</span><span>            </span><span style="color:#75715e;"># 没有发生交换，直接返回list
+</span><span>            </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span><span>    </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span></code></pre>
+<h2 id="选择排序">选择排序</h2>
+<h3 id="原理-1">原理</h3>
+<p>选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理大致是将后面的元素最小元素一个个取出然后按顺序放置。</p>
+<h3 id="步骤-1">步骤</h3>
+<ol>
+<li>在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，</li>
+<li>再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</li>
+<li>重复第二步，直到所有元素均排序完毕。</li>
+</ol>
+<h3 id="代码-1">代码</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">selection_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    n</span><span style="color:#f92672;">=</span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>)
+</span><span>   </span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range </span><span>(</span><span style="color:#ae81ff;">0</span><span>,n):
+</span><span>       </span><span style="color:#66d9ef;">min </span><span style="color:#f92672;">= </span><span>i
+</span><span>       </span><span style="color:#f92672;">for </span><span>j </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(i</span><span style="color:#f92672;">+</span><span style="color:#ae81ff;">1</span><span>,n):
+</span><span>           </span><span style="color:#f92672;">if </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j]</span><span style="color:#f92672;">&lt;</span><span style="font-style:italic;color:#66d9ef;">list</span><span>[</span><span style="color:#66d9ef;">min</span><span>]:
+</span><span>               </span><span style="color:#66d9ef;">min</span><span style="color:#f92672;">=</span><span>j
+</span><span>               </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[</span><span style="color:#66d9ef;">min</span><span>],</span><span style="font-style:italic;color:#66d9ef;">list</span><span>[i]</span><span style="color:#f92672;">=</span><span style="font-style:italic;color:#66d9ef;">list</span><span>[i],</span><span style="font-style:italic;color:#66d9ef;">list</span><span>[</span><span style="color:#66d9ef;">min</span><span>]
+</span><span>   </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span></code></pre>
+<h2 id="插入排序">插入排序</h2>
+<p>###原理
+插入排序（Insertion Sort）是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</p>
+<h3 id="步骤-2">步骤</h3>
+<ol>
+<li>从第一个元素开始，该元素可以认为已经被排序</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+<li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+<li>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</li>
+<li>将新元素插入到该位置后</li>
+<li>重复步骤2~5</li>
+</ol>
+<h3 id="代码-2">代码</h3>
+<pre data-lang="Python" style="background-color:#272822;color:#f8f8f2;" class="language-Python "><code class="language-Python" data-lang="Python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">insert_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    n </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>)
+</span><span>    </span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#ae81ff;">1</span><span>, n):
+</span><span>        </span><span style="color:#75715e;"># 后一个元素和前一个元素比较
+</span><span>        </span><span style="color:#75715e;"># 如果比前一个小
+</span><span>        </span><span style="color:#f92672;">if </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[i] </span><span style="color:#f92672;">&lt; </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[i </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>]:
+</span><span>            </span><span style="color:#75715e;"># 将这个数取出
+</span><span>            temp </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[i]
+</span><span>            </span><span style="color:#75715e;"># 保存下标
+</span><span>            index </span><span style="color:#f92672;">= </span><span>i
+</span><span>            </span><span style="color:#75715e;"># 从后往前依次比较每个元素
+</span><span>            </span><span style="color:#f92672;">for </span><span>j </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(i </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>, </span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">1</span><span>, </span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">1</span><span>):
+</span><span>                </span><span style="color:#75715e;"># 和比取出元素大的元素交换
+</span><span>                </span><span style="color:#f92672;">if </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j] </span><span style="color:#f92672;">&gt; </span><span>temp:
+</span><span>                    </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1</span><span>] </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j]
+</span><span>                    index </span><span style="color:#f92672;">= </span><span>j
+</span><span>                </span><span style="color:#f92672;">else</span><span>:
+</span><span>                    </span><span style="color:#f92672;">break
+</span><span>            </span><span style="color:#75715e;"># 插入元素
+</span><span>            </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[index] </span><span style="color:#f92672;">= </span><span>temp
+</span><span>    </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span></code></pre>
+<h2 id="希尔排序">希尔排序</h2>
+<h3 id="原理-2">原理</h3>
+<p>希尔排序，也称递减增量排序算法，是插入排序的一种更高效的改进版本。希尔排序是非稳定排序算法。
+希尔排序是基于插入排序的以下两点性质而提出改进方法的：
+插入排序在对几乎已经排好序的数据操作时，效率高，即可以达到线性排序的效率
+但插入排序一般来说是低效的，因为插入排序每次只能将数据移动一位。</p>
+<h3 id="步骤-3">步骤</h3>
+<p>每次以一定步长(就是跳过等距的数)进行排序，直至步长为1.</p>
+<h3 id="代码-3">代码</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">shell_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    n </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>)
+</span><span>    </span><span style="color:#75715e;"># 初始步长
+</span><span>    gap </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">round</span><span>(n </span><span style="color:#f92672;">/ </span><span style="color:#ae81ff;">2</span><span>)
+</span><span>    </span><span style="color:#f92672;">while </span><span>gap </span><span style="color:#f92672;">&gt; </span><span style="color:#ae81ff;">0</span><span>:
+</span><span>        </span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(gap, n):
+</span><span>            </span><span style="color:#75715e;"># 每个步长进行插入排序
+</span><span>            temp </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[i]
+</span><span>            j </span><span style="color:#f92672;">= </span><span>i
+</span><span>            </span><span style="color:#75715e;"># 插入排序
+</span><span>            </span><span style="color:#f92672;">while </span><span>j </span><span style="color:#f92672;">&gt;= </span><span>gap </span><span style="color:#f92672;">and </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span>gap] </span><span style="color:#f92672;">&gt; </span><span>temp:
+</span><span>                </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j] </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j </span><span style="color:#f92672;">- </span><span>gap]
+</span><span>                j </span><span style="color:#f92672;">-= </span><span>gap
+</span><span>            </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[j] </span><span style="color:#f92672;">= </span><span>temp
+</span><span>        </span><span style="color:#75715e;"># 得到新的步长
+</span><span>        gap </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">round</span><span>(gap </span><span style="color:#f92672;">/ </span><span style="color:#ae81ff;">2</span><span>)
+</span><span>    </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span></code></pre>
+<blockquote>
+<p>步长使用的是Donald Shell的建议，另外步长还可以使用Sedgewick提出的(1, 5, 19, 41, 109,...)，该序列的项来自 {\displaystyle 9\times 4^{i}-9\times 2^{i}+1} 9\times 4^{i}-9\times 2^{i}+1和 {\displaystyle 2^{i+2}\times (2^{i+2}-3)+1} 2^{{i+2}}\times (2^{{i+2}}-3)+1这两个算式。
+也可以使用<a href="https://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97">斐波那契数列</a>除去0和1将剩余的数以黄金分区比的两倍的幂进行运算得到的数列。</p>
+</blockquote>
+<h2 id="归并排序">归并排序</h2>
+<h3 id="原理-3">原理</h3>
+<p>归并操作(归并算法)，指的是将两个已经排序的序列合并成一个序列的操作。归并排序算法依赖归并操作。</p>
+<h3 id="步骤-4">步骤</h3>
+<h4 id="迭代法">迭代法</h4>
+<ol>
+<li>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列</li>
+<li>设定两个指针，最初位置分别为两个已经排序序列的起始位置</li>
+<li>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置</li>
+<li>重复步骤3直到某一指针到达序列尾</li>
+<li>将另一序列剩下的所有元素直接复制到合并序列尾</li>
+</ol>
+<h4 id="递归法">递归法</h4>
+<p>假设序列共有n个元素：</p>
+<ol>
+<li>将序列每相邻两个数字进行归并操作，形成 {\displaystyle floor(n/2)} floor(n/2)个序列，排序后每个序列包含两个元素</li>
+<li>将上述序列再次归并，形成 {\displaystyle floor(n/4)} floor(n/4)个序列，每个序列包含四个元素</li>
+<li>重复步骤2，直到所有元素排序完毕</li>
+</ol>
+<h3 id="代码-4">代码</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#75715e;"># 递归法
+</span><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">merge_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    </span><span style="color:#75715e;"># 认为长度不大于1的数列是有序的
+</span><span>    </span><span style="color:#f92672;">if </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>) </span><span style="color:#f92672;">&lt;= </span><span style="color:#ae81ff;">1</span><span>:
+</span><span>        </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span><span>    </span><span style="color:#75715e;"># 二分列表
+</span><span>    middle </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>) </span><span style="color:#f92672;">// </span><span style="color:#ae81ff;">2
+</span><span>    left </span><span style="color:#f92672;">= </span><span>merge_sort(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>[:middle])
+</span><span>    right </span><span style="color:#f92672;">= </span><span>merge_sort(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>[middle:])
+</span><span>    </span><span style="color:#75715e;"># 最后一次合并
+</span><span>    </span><span style="color:#f92672;">return </span><span>merge(left, right)
+</span><span style="color:#75715e;"># 合并
+</span><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">merge</span><span>(</span><span style="font-style:italic;color:#fd971f;">left</span><span>, </span><span style="font-style:italic;color:#fd971f;">right</span><span>):
+</span><span>    l,r</span><span style="color:#f92672;">=</span><span style="color:#ae81ff;">0</span><span>,</span><span style="color:#ae81ff;">0
+</span><span>    result</span><span style="color:#f92672;">=</span><span>[]
+</span><span>    </span><span style="color:#f92672;">while </span><span>l</span><span style="color:#f92672;">&lt;</span><span style="color:#66d9ef;">len</span><span>(left) </span><span style="color:#f92672;">and </span><span>r</span><span style="color:#f92672;">&lt;</span><span style="color:#66d9ef;">len</span><span>(right):
+</span><span>        </span><span style="color:#f92672;">if </span><span>left[l] </span><span style="color:#f92672;">&lt;</span><span>right[r]:
+</span><span>            result.append(left[l])
+</span><span>            l</span><span style="color:#f92672;">+=</span><span style="color:#ae81ff;">1
+</span><span>        </span><span style="color:#f92672;">else</span><span>:
+</span><span>            result.append(right[r])
+</span><span>            r </span><span style="color:#f92672;">+=</span><span style="color:#ae81ff;">1
+</span><span>        reslut </span><span style="color:#f92672;">+=</span><span>left[l:]
+</span><span>        result</span><span style="color:#f92672;">+=</span><span>right[r:]                
+</span><span>    </span><span style="color:#f92672;">return </span><span>result
+</span></code></pre>
+<p>鄙人不才，不知归并排序的迭代法如何用Python实现，望指教。</p>
+<h2 id="快速排序">快速排序</h2>
+<h3 id="原理-4">原理</h3>
+<p>快速排序使用分治法（Divide and conquer）策略来把一个序列（list）分为两个子序列（sub-lists）。</p>
+<h3 id="步骤-5">步骤</h3>
+<ol>
+<li>从数列中挑出一个元素，称为&quot;基准&quot;（pivot），</li>
+<li>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区（partition）操作。</li>
+<li>递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序。</li>
+</ol>
+<h3 id="代码-5">代码</h3>
+<p>普通版</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">quick_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    less </span><span style="color:#f92672;">= </span><span>[]
+</span><span>    pivotList </span><span style="color:#f92672;">= </span><span>[]
+</span><span>    more </span><span style="color:#f92672;">= </span><span>[]
+</span><span>    </span><span style="color:#75715e;"># 递归出口
+</span><span>    </span><span style="color:#f92672;">if </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>) </span><span style="color:#f92672;">&lt;= </span><span style="color:#ae81ff;">1</span><span>:
+</span><span>        </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span><span>    </span><span style="color:#f92672;">else</span><span>:
+</span><span>        </span><span style="color:#75715e;"># 将第一个值做为基准
+</span><span>        pivot </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[</span><span style="color:#ae81ff;">0</span><span>]
+</span><span>        </span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="font-style:italic;color:#66d9ef;">list</span><span>:
+</span><span>            </span><span style="color:#75715e;"># 将比急转小的值放到less数列
+</span><span>            </span><span style="color:#f92672;">if </span><span>i </span><span style="color:#f92672;">&lt; </span><span>pivot:
+</span><span>                less.append(i)
+</span><span>            </span><span style="color:#75715e;"># 将比基准打的值放到more数列
+</span><span>            </span><span style="color:#f92672;">elif </span><span>i </span><span style="color:#f92672;">&gt; </span><span>pivot:
+</span><span>                more.append(i)
+</span><span>            </span><span style="color:#75715e;"># 将和基准相同的值保存在基准数列
+</span><span>            </span><span style="color:#f92672;">else</span><span>:
+</span><span>                pivotList.append(i)
+</span><span>        </span><span style="color:#75715e;"># 对less数列和more数列继续进行排序
+</span><span>        less </span><span style="color:#f92672;">= </span><span>quick_sort(less)
+</span><span>        more </span><span style="color:#f92672;">= </span><span>quick_sort(more)
+</span><span>        </span><span style="color:#f92672;">return </span><span>less </span><span style="color:#f92672;">+ </span><span>pivotList </span><span style="color:#f92672;">+ </span><span>more
+</span></code></pre>
+<p>咳咳，下面这段代码出自《Python cookbook 第二版》传说中的三行实现python快速排序。</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">qsort</span><span>(</span><span style="font-style:italic;color:#fd971f;">arr</span><span>):
+</span><span>    </span><span style="color:#f92672;">if </span><span style="color:#66d9ef;">len</span><span>(arr) </span><span style="color:#f92672;">&lt;= </span><span style="color:#ae81ff;">1</span><span>:
+</span><span>        </span><span style="color:#f92672;">return </span><span>arr
+</span><span>    </span><span style="color:#f92672;">else</span><span>:
+</span><span>        pivot </span><span style="color:#f92672;">= </span><span>arr[</span><span style="color:#ae81ff;">0</span><span>]
+</span><span>        </span><span style="color:#f92672;">return </span><span>qsort([x </span><span style="color:#f92672;">for </span><span>x </span><span style="color:#f92672;">in </span><span>arr[</span><span style="color:#ae81ff;">1</span><span>:] </span><span style="color:#f92672;">if </span><span>x </span><span style="color:#f92672;">&lt; </span><span>pivot]) </span><span style="color:#f92672;">+ </span><span>\
+</span><span>               [pivot] </span><span style="color:#f92672;">+ </span><span>\
+</span><span>               qsort([x </span><span style="color:#f92672;">for </span><span>x </span><span style="color:#f92672;">in </span><span>arr[</span><span style="color:#ae81ff;">1</span><span>:] </span><span style="color:#f92672;">if </span><span>x </span><span style="color:#f92672;">&gt;= </span><span>pivot])
+</span></code></pre>
+<p>当然还有一行语法糖版本:</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span>qs </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#f92672;">lambda </span><span style="font-style:italic;color:#fd971f;">xs </span><span>: ( (</span><span style="color:#66d9ef;">len</span><span>(xs) </span><span style="color:#f92672;">&lt;= </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">and </span><span>[xs]) </span><span style="color:#f92672;">or </span><span>[ qs( [x </span><span style="color:#f92672;">for </span><span>x </span><span style="color:#f92672;">in </span><span>xs[</span><span style="color:#ae81ff;">1</span><span>:] </span><span style="color:#f92672;">if </span><span>x </span><span style="color:#f92672;">&lt; </span><span>xs[</span><span style="color:#ae81ff;">0</span><span>]] ) </span><span style="color:#f92672;">+ </span><span>[xs[</span><span style="color:#ae81ff;">0</span><span>]] </span><span style="color:#f92672;">+ </span><span>qs( [x </span><span style="color:#f92672;">for </span><span>x </span><span style="color:#f92672;">in </span><span>xs[</span><span style="color:#ae81ff;">1</span><span>:] </span><span style="color:#f92672;">if </span><span>x </span><span style="color:#f92672;">&gt;= </span><span>xs[</span><span style="color:#ae81ff;">0</span><span>]] ) ] )[</span><span style="color:#ae81ff;">0</span><span>]
+</span></code></pre>
+<p>是不是感受到了Python的魅力？</p>
+<h2 id="堆排序">堆排序</h2>
+<h3 id="原理-5">原理</h3>
+<p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+<h3 id="步骤-6">步骤</h3>
+<ol>
+<li>创建最大堆:将堆所有数据重新排序，使其成为最大堆</li>
+<li>最大堆调整:作用是保持最大堆的性质，是创建最大堆的核心子程序</li>
+<li>堆排序:移除位在第一个数据的根节点，并做最大堆调整的递归运算</li>
+</ol>
+<h3 id="代码-6">代码</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">heap_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    </span><span style="color:#75715e;"># 创建最大堆
+</span><span>    </span><span style="color:#f92672;">for </span><span>start </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>((</span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>) </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">2</span><span>) </span><span style="color:#f92672;">// </span><span style="color:#ae81ff;">2</span><span>, </span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">1</span><span>, </span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">1</span><span>):
+</span><span>        sift_down(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>, start, </span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>) </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>)
+</span><span>
+</span><span>    </span><span style="color:#75715e;"># 堆排序
+</span><span>    </span><span style="color:#f92672;">for </span><span>end </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#66d9ef;">len</span><span>(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>) </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>, </span><span style="color:#ae81ff;">0</span><span>, </span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">1</span><span>):
+</span><span>        </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[</span><span style="color:#ae81ff;">0</span><span>], </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[end] </span><span style="color:#f92672;">= </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[end], </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[</span><span style="color:#ae81ff;">0</span><span>]
+</span><span>        sift_down(</span><span style="font-style:italic;color:#66d9ef;">list</span><span>, </span><span style="color:#ae81ff;">0</span><span>, end </span><span style="color:#f92672;">- </span><span style="color:#ae81ff;">1</span><span>)
+</span><span>    </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span><span>
+</span><span>
+</span><span style="color:#75715e;"># 最大堆调整
+</span><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">sift_down</span><span>(</span><span style="font-style:italic;color:#fd971f;">lst</span><span>, </span><span style="font-style:italic;color:#fd971f;">start</span><span>, </span><span style="font-style:italic;color:#fd971f;">end</span><span>):
+</span><span>    root </span><span style="color:#f92672;">= </span><span>start
+</span><span>    </span><span style="color:#f92672;">while </span><span style="color:#ae81ff;">True</span><span>:
+</span><span>        child </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">2 </span><span style="color:#f92672;">* </span><span>root </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1
+</span><span>        </span><span style="color:#f92672;">if </span><span>child </span><span style="color:#f92672;">&gt; </span><span>end:
+</span><span>            </span><span style="color:#f92672;">break
+</span><span>        </span><span style="color:#f92672;">if </span><span>child </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">&lt;= </span><span>end </span><span style="color:#f92672;">and </span><span>lst[child] </span><span style="color:#f92672;">&lt; </span><span>lst[child </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1</span><span>]:
+</span><span>            child </span><span style="color:#f92672;">+= </span><span style="color:#ae81ff;">1
+</span><span>        </span><span style="color:#f92672;">if </span><span>lst[root] </span><span style="color:#f92672;">&lt; </span><span>lst[child]:
+</span><span>            lst[root], lst[child] </span><span style="color:#f92672;">= </span><span>lst[child], lst[root]
+</span><span>            root </span><span style="color:#f92672;">= </span><span>child
+</span><span>        </span><span style="color:#f92672;">else</span><span>:
+</span><span>            </span><span style="color:#f92672;">break
+</span></code></pre>
+<h2 id="计数排序">计数排序</h2>
+<h3 id="原理-6">原理</h3>
+<p>当输入的元素是n个0到k之间的整数时，它的运行时间是Θ(n + k)。计数排序不是比较排序，排序的速度快于任何比较排序算法。</p>
+<p>由于用来计数的数组C的长度取决于待排序数组中数据的范围（等于待排序数组的最大值与最小值的差加上1），这使得计数排序对于数据范围很大的数组，需要大量时间和内存。例如：计数排序是用来排序0到100之间的数字的最好的算法，但是它不适合按字母顺序排序人名。但是，计数排序可以用在基数排序算法中，能够更有效的排序数据范围很大的数组。</p>
+<h3 id="步骤-7">步骤</h3>
+<ol>
+<li>找出待排序的数组中最大和最小的元素</li>
+<li>统计数组中每个值为i的元素出现的次数，存入数组 C 的第 i 项</li>
+<li>对所有的计数累加（从C中的第一个元素开始，每一项和前一项相加）</li>
+<li>反向填充目标数组：将每个元素i放在新数组的第C(i)项，每放一个元素就将C(i)减去1</li>
+</ol>
+<h3 id="代码-7">代码</h3>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">count_sort</span><span>(</span><span style="font-style:italic;color:#fd971f;">list</span><span>):
+</span><span>    </span><span style="color:#66d9ef;">min </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">2147483647
+</span><span>    </span><span style="color:#66d9ef;">max </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0
+</span><span>    </span><span style="color:#75715e;"># 取得最大值和最小值
+</span><span>    </span><span style="color:#f92672;">for </span><span>x </span><span style="color:#f92672;">in </span><span style="font-style:italic;color:#66d9ef;">list</span><span>:
+</span><span>        </span><span style="color:#f92672;">if </span><span>x </span><span style="color:#f92672;">&lt; </span><span style="color:#66d9ef;">min</span><span>:
+</span><span>            </span><span style="color:#66d9ef;">min </span><span style="color:#f92672;">= </span><span>x
+</span><span>        </span><span style="color:#f92672;">if </span><span>x </span><span style="color:#f92672;">&gt; </span><span style="color:#66d9ef;">max</span><span>:
+</span><span>            </span><span style="color:#66d9ef;">max </span><span style="color:#f92672;">= </span><span>x
+</span><span>    </span><span style="color:#75715e;"># 创建数组C
+</span><span>    count </span><span style="color:#f92672;">= </span><span>[</span><span style="color:#ae81ff;">0</span><span>] </span><span style="color:#f92672;">* </span><span>(</span><span style="color:#66d9ef;">max </span><span style="color:#f92672;">- </span><span style="color:#66d9ef;">min </span><span style="color:#f92672;">+</span><span style="color:#ae81ff;">1</span><span>)
+</span><span>    </span><span style="color:#f92672;">for </span><span>index </span><span style="color:#f92672;">in </span><span style="font-style:italic;color:#66d9ef;">list</span><span>:
+</span><span>        count[index </span><span style="color:#f92672;">- </span><span style="color:#66d9ef;">min</span><span>] </span><span style="color:#f92672;">+= </span><span style="color:#ae81ff;">1
+</span><span>    index </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0
+</span><span>    </span><span style="color:#75715e;"># 填值
+</span><span>    </span><span style="color:#f92672;">for </span><span>a </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#66d9ef;">max </span><span style="color:#f92672;">- </span><span style="color:#66d9ef;">min</span><span style="color:#f92672;">+</span><span style="color:#ae81ff;">1</span><span>):
+</span><span>        </span><span style="color:#f92672;">for </span><span>c </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(count[a]):
+</span><span>            </span><span style="font-style:italic;color:#66d9ef;">list</span><span>[index] </span><span style="color:#f92672;">= </span><span>a </span><span style="color:#f92672;">+ </span><span style="color:#66d9ef;">min
+</span><span>            index </span><span style="color:#f92672;">+= </span><span style="color:#ae81ff;">1
+</span><span>    </span><span style="color:#f92672;">return </span><span style="font-style:italic;color:#66d9ef;">list
+</span></code></pre>
+<h2 id="第九种排序">第九种排序</h2>
+<p>None？
+当然不会
+自然就是系统自带的</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#66d9ef;">list</span><span>.sort()
+</span></code></pre>
+<p>以上所有源代码均在<a href="https://github.com/EINDEX/Python-algorithm">Github共享</a>希望与大家共同进步!</p>
+<hr />
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>维基百科: <a href="https://zh.wikipedia.org/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">冒泡排序</a>、<a href="https://zh.wikipedia.org/wiki/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F">选择排序</a>、<a href="https://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F">插入排序</a>、<a href="https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F">希尔排序</a>、<a href="https://zh.wikipedia.org/wiki/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F">归并排序</a>、<a href="https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F#.E5.8E.9F.E5.9C.B0.EF.BC.88in-place.EF.BC.89.E5.88.86.E5.89.B2.E7.9A.84.E7.89.88.E6.9C.AC">快速排序</a>、<a href="https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F">堆排序</a>、<a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F">计数排序</a></li>
+<li><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/">Python Cookbook</a></li>
+</ul>
+<h2 id="感谢">感谢</h2>
+<p>知乎用户:<a href="https://www.zhihu.com/people/ding-yi-xing">dhx1793516813</a>、<a href="https://www.zhihu.com/people/cai-hao-lun-58">左鸢</a>、<a href="https://www.zhihu.com/people/ling-jian-94">灵剑</a>
+为本文缺漏之处提出建议</p>
+
+    </section>
+    <section class="post-footer">
+        
+        
+<div class="tags">
+    <i class="fa-solid fa-tags"></i>
+    
+        <span class="tag"><a href="">Python</a></span>
+    
+        <span class="tag"><a href="">Sort</a></span>
+    
+</div>
+
+    </section>
+    
+    <section class="comments">
+        
+<script src="https://giscus.app/client.js"
+    data-repo="EINDEX&#x2F;blog"
+    data-repo-id="R_kgDOGWb6Yg"
+    data-category-id="DIC_kwDOGWb6Ys4CAKn-"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+    </section>
+    
+</article>
+
+
+        </main>
+        <aside>
+            
+        </aside>
+    </div>
+    <footer class="footer">
+  <div class="content">
+    <div class="item">
+    </div>
+    <div class="item"></div>
+    <div class="item profile">
+      <img class="avatar" src="/images/avatar.png" />
+      <ul class="links">
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;github.com&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-github"></i><span>Github</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;twitter.com&#x2F;eindex_li" rel="me" target="_blank"
+            ><i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;t.me&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-telegram"></i><span>Telegram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="mailto:eindex.me@outlook.com" rel="me" target="_blank"
+            ><i class="fas fa-envelope"></i><span>Email</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    
+    
+  
+  <span class="webring">
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous">←</a>
+An IndieWeb Webring 🕸💍
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next">→</a>
+</span>
+  <a
+    class="powered-by"
+    href="https://github.com/EINDEX/qingzhuo"
+    target="_blank"
+    >Powered By QingZhuo
+  </a>
+  
+</footer>
+
+  </body>
+  
+</html>

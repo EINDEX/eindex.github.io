@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+  
+
+
+
+
+
+<head>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://preview.blog-2j7.pages.dev/feed.xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="author" itemprop="author" content="EINDEX">
+  
+  <title>Pipenv + Autoenv 更友善的工作环境 &bull; EINDEX&#x27;s Blog</title>
+  <meta property="og:title" content="Pipenv + Autoenv 更友善的工作环境 &bull; EINDEX&#x27;s Blog" />
+  
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+
+
+  <!-- **** BEGINNING, favicons **** -->
+
+  <!-- generics -->
+
+  <!-- iOS -->
+
+  <!-- Android -->
+
+  <!-- Windows 8, IE 10 -->
+
+  <!-- Windows 8.1 and up, IE 11 -->
+
+  <!-- **** CONCLUSION, favicons **** -->
+
+  <!-- CSS/SCSS -->
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" />  <style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style>
+  
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f">
+
+  <link rel="webmention" href="https://webmention.io/eindex.me/webmention" />
+  <link rel="pingback" href="https://webmention.io/eindex.me/xmlrpc" />
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+
+<meta property="og:url" content="https://preview.blog-2j7.pages.dev/posts/pipenv-autoenv/">
+<meta property="og:site_name" content="EINDEX&#x27;s Blog">
+<meta property="og:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pipenv + Autoenv 更友善的工作环境 &bull; EINDEX&#x27;s Blog">
+
+<meta name="twitter:site" content="@eindex_li">
+<meta name="twitter:creator" content="@eindex_li">
+<meta name="twitter:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "Pipenv + Autoenv 更友善的工作环境",
+      "image": "https://preview.blog-2j7.pages.dev/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://preview.blog-2j7.pages.dev/posts/pipenv-autoenv/"
+      },
+      
+      "datePublished": "2018-09-05",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://preview.blog-2j7.pages.dev/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://preview.blog-2j7.pages.dev/images/avatar.png"
+      },
+      "keywords": ["Python","Environment","Pipenv","Autoenv","代码"]
+    }
+</script>
+
+  
+  
+  
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="items">
+      <li>
+        
+        <a class="site-link" href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;"><img
+            class="avatar"
+            src="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;processed_images&#x2F;985d495e6e585ad000.png"
+            alt="Workflow"
+        /><span class="site-name">EINDEX&#x27;s Blog</span></a>
+      </li>
+      <li class="delimiter"></li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/archive/"
+          >归档</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/links/"
+          >友链</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/about/"
+          >关于</a
+        >
+      </li>
+      
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <main>
+            
+  <article data-clarity-region="article">
+    
+<section class="header">
+<section class="title-area">
+    
+    <h1 class="title">  
+    <a href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;posts&#x2F;pipenv-autoenv&#x2F;">Pipenv + Autoenv 更友善的工作环境</a>
+    </h1>
+  </section>
+  <section class="meta-area">
+  
+    <span><i class="far fa-calendar-days"></i><time>2018-09-05</time></span>
+  
+  
+    
+    
+    <a class="categories"  href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;categories&#x2F;dai-ma&#x2F;"><i class="fa-solid fa-inbox"></i>代码</a>
+  
+    <span><i class="fas fa-clock"></i> 2 mins</span>
+  </section>
+</section>
+
+    <section class="main">
+        
+        <p>Python 包管理一直都是一个问题，如今 3.6 推荐采用 Pipenv 出自 Requests 的大牛做所。配合上他写的 Autoenv 切换环境再也不是问题。</p>
+<span id="continue-reading"></span><h2 id="安装">安装</h2>
+<h3 id="MacOS">MacOS</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>brew install pipenv
+</span><span>brew install autoenv
+</span></code></pre>
+<p>其他平台自行 Google。</p>
+<h2 id="Pipenv">Pipenv</h2>
+<p>pipenv 在安装之后会在当前目录上生成一个 Pipfile ，这个文件不在是像 requestments.txt 那样的纯粹的文本结构，加入了一些配置内容。</p>
+<p>比如说可以配置使用的 pipy 源，Python 版本号，以及包管理。
+Pipenv 的包管理比其他的有点在于可以直接在配置文件中指定 正式运行 packages 和 开发环境中的 packages，管理一个文件比管理多个版本文件的好处不言而喻。</p>
+<p>同时 pip 加入了 pip install -p Pipfile 来支持 Pipenv，官方都支持了，我们还等什么，用用用。</p>
+<p>具体内容详见官方 <a href="https://github.com/pypa/pipenv">Github</a>。</p>
+<h2 id="Autoenv">Autoenv</h2>
+<p>既然 Pipenv 都这么强大了，自然会导致虚拟环境满天飞，不方便进入虚拟环境的时候怎么办。
+这个时候就需要 Autoenv 登场了。</p>
+<h3 id="配置(MacOS)">配置(MacOS)</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#66d9ef;">echo </span><span style="color:#e6db74;">&quot;source $(brew</span><span style="font-style:italic;color:#fd971f;"> --prefix</span><span style="color:#e6db74;"> autoenv)/activate.sh&quot; </span><span style="color:#f92672;">&gt;&gt; </span><span>~/.bash_profile
+</span></code></pre>
+<p>他能在进入一个文件目录的时候自动进入虚拟环境，当然前提是你需要将虚拟环境路径加入<code>.env</code>文件，并将这个文件放在项目根目录下，这样在进入目录时会自动切入到环境中。</p>
+<p>节约时间与生命，Python 大法好！</p>
+
+    </section>
+    <section class="post-footer">
+        
+        
+<div class="tags">
+    <i class="fa-solid fa-tags"></i>
+    
+        <span class="tag"><a href="">Python</a></span>
+    
+        <span class="tag"><a href="">Environment</a></span>
+    
+        <span class="tag"><a href="">Pipenv</a></span>
+    
+        <span class="tag"><a href="">Autoenv</a></span>
+    
+</div>
+
+    </section>
+    
+    <section class="comments">
+        
+<script src="https://giscus.app/client.js"
+    data-repo="EINDEX&#x2F;blog"
+    data-repo-id="R_kgDOGWb6Yg"
+    data-category-id="DIC_kwDOGWb6Ys4CAKn-"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+    </section>
+    
+</article>
+
+
+        </main>
+        <aside>
+            
+        </aside>
+    </div>
+    <footer class="footer">
+  <div class="content">
+    <div class="item">
+    </div>
+    <div class="item"></div>
+    <div class="item profile">
+      <img class="avatar" src="/images/avatar.png" />
+      <ul class="links">
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;github.com&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-github"></i><span>Github</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;twitter.com&#x2F;eindex_li" rel="me" target="_blank"
+            ><i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;t.me&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-telegram"></i><span>Telegram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="mailto:eindex.me@outlook.com" rel="me" target="_blank"
+            ><i class="fas fa-envelope"></i><span>Email</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    
+    
+  
+  <span class="webring">
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous">←</a>
+An IndieWeb Webring 🕸💍
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next">→</a>
+</span>
+  <a
+    class="powered-by"
+    href="https://github.com/EINDEX/qingzhuo"
+    target="_blank"
+    >Powered By QingZhuo
+  </a>
+  
+</footer>
+
+  </body>
+  
+</html>

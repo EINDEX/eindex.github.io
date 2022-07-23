@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+  
+
+
+
+
+
+<head>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://preview.blog-2j7.pages.dev/feed.xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="author" itemprop="author" content="EINDEX">
+  
+  <title>小白也能上手的 ArchLinux 安装教程 &bull; EINDEX&#x27;s Blog</title>
+  <meta property="og:title" content="小白也能上手的 ArchLinux 安装教程 &bull; EINDEX&#x27;s Blog" />
+  
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+
+
+  <!-- **** BEGINNING, favicons **** -->
+
+  <!-- generics -->
+
+  <!-- iOS -->
+
+  <!-- Android -->
+
+  <!-- Windows 8, IE 10 -->
+
+  <!-- Windows 8.1 and up, IE 11 -->
+
+  <!-- **** CONCLUSION, favicons **** -->
+
+  <!-- CSS/SCSS -->
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" />  <style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style>
+  
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f">
+
+  <link rel="webmention" href="https://webmention.io/eindex.me/webmention" />
+  <link rel="pingback" href="https://webmention.io/eindex.me/xmlrpc" />
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+
+<meta property="og:url" content="https://preview.blog-2j7.pages.dev/posts/archlinux-install-guide/">
+<meta property="og:site_name" content="EINDEX&#x27;s Blog">
+<meta property="og:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小白也能上手的 ArchLinux 安装教程 &bull; EINDEX&#x27;s Blog">
+
+<meta name="twitter:site" content="@eindex_li">
+<meta name="twitter:creator" content="@eindex_li">
+<meta name="twitter:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "小白也能上手的 ArchLinux 安装教程",
+      "image": "https://preview.blog-2j7.pages.dev/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://preview.blog-2j7.pages.dev/posts/archlinux-install-guide/"
+      },
+      
+      "datePublished": "2017-10-05",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://preview.blog-2j7.pages.dev/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://preview.blog-2j7.pages.dev/images/avatar.png"
+      },
+      "keywords": ["教程","ArchLinux"]
+    }
+</script>
+
+  
+  
+  
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="items">
+      <li>
+        
+        <a class="site-link" href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;"><img
+            class="avatar"
+            src="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;processed_images&#x2F;985d495e6e585ad000.png"
+            alt="Workflow"
+        /><span class="site-name">EINDEX&#x27;s Blog</span></a>
+      </li>
+      <li class="delimiter"></li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/archive/"
+          >归档</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/links/"
+          >友链</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/about/"
+          >关于</a
+        >
+      </li>
+      
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <main>
+            
+  <article data-clarity-region="article">
+    
+<section class="header">
+<section class="title-area">
+    
+    <h1 class="title">  
+    <a href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;posts&#x2F;archlinux-install-guide&#x2F;">小白也能上手的 ArchLinux 安装教程</a>
+    </h1>
+  </section>
+  <section class="meta-area">
+  
+    <span><i class="far fa-calendar-days"></i><time>2017-10-05</time></span>
+  
+  
+    
+    
+    <a class="categories"  href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;categories&#x2F;jiao-cheng&#x2F;"><i class="fa-solid fa-inbox"></i>教程</a>
+  
+    <span><i class="fas fa-clock"></i> 11 mins</span>
+  </section>
+</section>
+
+    <section class="main">
+        
+        <p>ArchLinux 是一个非常符合我个人哲学的操作系统，深得与我一样的大部分 Pythonista 之心(不好意思代表你们了)。</p>
+<span id="continue-reading"></span><h2 id="什么是_ArchLinux">什么是 ArchLinux</h2>
+<blockquote>
+<h2 id="原则">原则</h2>
+<p>以下核心原则构成了我们通常所指的 Arch 之道，或者说 Arch 的哲学，或许最好的结词是 Keep It Simple, Stupid（对应中文为“保持简单，且一目了然”）。</p>
+<h3 id="简洁">简洁</h3>
+<p>Arch Linux 将简洁定义为：<strong>避免任何不必要的添加、修改和复杂增加</strong>。它提供的软件都来自原始开发者(<a href="https://en.wikipedia.org/wiki/Upstream_(software_development)" title="wikipedia:Upstream (software development)">上游</a>)，仅进行和发行版(下游)相关的最小修改。</p>
+<ul>
+<li>不包含上游不愿意接受的补丁。绝大部分 Arch 下游补丁都已经被上游接受，下一个正式版本里会包含。</li>
+<li>配置文件也是来自上游，仅包含发行版必须的调整，比如特殊的文件系统路径变动。Arch 不会在安装一个软件包后就自动启动服务。</li>
+<li>软件包通常都和一个上游项目直接对应。仅在极少数情况下才会拆分软件包。</li>
+<li>官方不支持图形化配置界面，建议用户使用命令行或文本编辑器修改设置。</li>
+</ul>
+<h3 id="现代">现代</h3>
+<p>Arch尽全力保持软件处于最新的稳定版本，只要不出现系统软件包破损，都尽量用最新版本。Arch采用<a href="https://en.wikipedia.org/wiki/Rolling_release" title="wikipedia:Rolling release">滚动升级</a>策略，安装之后可以持续升级。
+Arch向GNU/Linux用户提供了许多新特性，包括<a href="https://wiki.archlinux.org/index.php/Systemd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" title="Systemd (简体中文)">systemd</a>初始化系统、现代的<a href="https://wiki.archlinux.org/index.php/File_systems" title="File systems">文件系统</a>、LVM2/EVMS、软件磁盘阵列（软RAID）、udev支持、initcpio（附带mkinitcpio）以及最新的内核。</p>
+<h3 id="实用">实用</h3>
+<p>Arch 注重实用性，避免意识形态之争。最终的设计决策都是由开发者的共识决定。开发者依赖基于事实的技术分析和讨论，避免政治因素，不会被流行观点左右。
+Arch Linux 的仓库中包含大量的软件包和编译脚本。用户可以按照需要进行自由选择。仓库中既提供了开源、自由的软件，也提供了闭源软件。<strong>实用性大于意识形态</strong>.</p>
+<h3 id="以用户为中心">以用户为中心</h3>
+<p>许多 Linux 发行版都试图变得更“用户友好”，Arch Linux 则一直是，永远会是“以用户为中心”。此发行版是为了满足贡献者的需求，而不是为了吸引尽可能多的用户。Arch 适用于乐于自己动手的用户，他们愿意花时间阅读文档，解决自己的问题。
+报告问题、完善 Wiki 社区文档、为其它用户提供技术支持。<a href="https://wiki.archlinux.org/index.php/Arch_User_Repository_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" title="Arch User Repository (简体中文)">Arch 用户仓库</a> 收集用户贡献的软件包。Arch 开发者都是志愿者，活跃的贡献者很快就能称为开发人员。
+Arch 鼓励每一个用户 <a href="https://wiki.archlinux.org/index.php/Getting_involved" title="Getting involved">参与</a> 和贡献，报告和帮助修复 <a href="https://bugs.archlinux.org/">bugs</a>，提供软件包补丁和参加核心 <a href="https://projects.archlinux.org/">项目</a>：Arch 开发者都是志愿者，通过持续的贡献成为团队的一员。<em>Archers</em> 可以自行贡献软件包到 <a href="https://wiki.archlinux.org/index.php/Arch_User_Repository" title="Arch User Repository">Arch User Repository</a>, 提升 <a href="https://wiki.archlinux.org/index.php/Main_page" title="Main page">ArchWiki 文档质量</a>, 在 <a href="https://bbs.archlinux.org/">论坛</a>, <a href="https://mailman.archlinux.org/mailman/listinfo/">邮件列表</a>, <a href="https://wiki.archlinux.org/index.php/IRC_channels" title="IRC channels">IRC</a> 中给其它用户提供技术支持. Arch Linux 是全球很多用户的选择，已经有很多 <a href="https://wiki.archlinux.org/index.php/International_communities" title="International communities">国际社区</a>提供帮助和文档翻译。
+—— 以上内容来自 <a href="https://wiki.archlinux.org/index.php/Arch_Linux_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">《 ArchWiki 简介》</a></p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<h3 id="目的">目的</h3>
+<p>在 VMware 的环境下安装 ArchLinux，以及 GUI。</p>
+<h3 id="准备阶段">准备阶段</h3>
+<p>在开始安装系统之前，我们需要准备这么几样东西。</p>
+<ul>
+<li>Vmware</li>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/archlinux/iso/">ArchLinux 镜像</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">官方安装向导</a></li>
+<li>(可选) 安装小视频 <a href="https://www.bilibili.com/video/av12933746/">Bilibili</a> </li>
+</ul>
+<h3 id="创建虚拟机">创建虚拟机</h3>
+<p>创建一个 Linux 虚拟机，选择其他 Linux x64 3.6内核，分配至少 1G 内存以及 8G 存储空间。
+将刚才下好的镜像添加到光驱中。</p>
+<h3 id="网络">网络</h3>
+<p>等待系统进入命令行后，首先检测网络。</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>ping www.baidu.com
+</span><span style="color:#75715e;"># 可以换为你自己所在地区稳定链接的网站
+</span></code></pre>
+<p>然后更新系统时间。</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>timedatectl set-ntp true
+</span></code></pre>
+<h3 id="分区">分区</h3>
+<p>通常 Linux 系统需要一个引导 Boot 分区，一个主分区，一个 Swap 分区，一个 home (用户)分区，(可选) var 分区。
+顺便讲讲各个分区的作用:</p>
+<ul>
+<li>引导分区：用于引导系统启动，加载内核能操作，独立分区可以方便多系统引导等。</li>
+<li>主分区：系统文件主要存放的地方，一般操作都需要 root 权限。</li>
+<li>Swap 分区：类似于虚拟内存，如果个人电脑内存足够大 8G 以上，不需要虚拟内存，如果多于 4G 小于 8G ，和内存保持 1 比 1 ，如果小于 4G ，和内存保持 1 比 2 较好。当然也可以不使用此分区。</li>
+<li>home 分区：通常用于存储个人数据，单独分出来主要是为了。
+<ol>
+<li>系统重装或崩溃后，不会影响该分区的数据。</li>
+<li>长时间使用必然会有很多零碎文件产生，可能导致 ArchLinux 无法滚动更新等等。</li>
+<li>分区单独加密。</li>
+</ol>
+</li>
+<li>var 分区：用于存放系统日志，各种应用的日志，当你系统 boom 了之后，还可以通过查看日志来分析 boom 原因，又或者日志填满了 var 分区，也不会影响主分区的空间。</li>
+</ul>
+<hr />
+<p>本次由于是安装在 Vmware 中，分一个主分区就好了。</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>fdisk /dev/sdX </span><span style="color:#75715e;"># 将 X 更换为你的磁盘
+</span></code></pre>
+<p>使用 fdisk (<a href="https://wiki.archlinux.org/index.php/Fdisk_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">教程</a>)一顿操作，最终得到你想要的分区结果。
+那么怎么查看是不是真的操作对了呢。</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>lsblk </span><span style="color:#75715e;"># 可以查看磁盘分区以及挂载信息
+</span></code></pre>
+<p>接下来格式化分区就好了</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>mkfs.ext4 /dev/sdX1 </span><span style="color:#75715e;">#通常除了 Boot 分区和 Swap 分区需要特殊处理，其他分区都使用 ext4 文件系统。
+</span></code></pre>
+<h2 id="安装-1">安装</h2>
+<h3 id="更换镜像">更换镜像</h3>
+<p>修改文件 <code>/etc/pacman.d/mirrorlist</code></p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#75715e;"># 这行代码可以快速选出所有中国镜像
+</span><span>awk </span><span style="color:#e6db74;">&#39;/^## China$/ {f=1} f==0 {next} /^$/ {exit} {print substr($0, 2)}&#39; </span><span>\
+</span><span>    /etc/pacman.d/mirrorlist.pacnew
+</span></code></pre>
+<h3 id="挂载磁盘">挂载磁盘</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>mount /dev/sdX1 /mnt
+</span></code></pre>
+<h3 id="安装系统">安装系统</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>pacstrap /mnt base base-devel vim zsh git </span><span style="color:#75715e;"># 顺便安装一些常用工具
+</span></code></pre>
+<h2 id="配置">配置</h2>
+<h3 id="Fstab">Fstab</h3>
+<p>Fstab 定义了存储设备和分区整合系统的方式。详情可见 <a href="https://en.wikipedia.org/wiki/Fstab">Wiki</a></p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>genfstab</span><span style="font-style:italic;color:#fd971f;"> -L</span><span> /mnt </span><span style="color:#f92672;">&gt;&gt;</span><span> /met/etc/fstab
+</span></code></pre>
+<h3 id="Chroot">Chroot</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>arch-chroot /mnt </span><span style="color:#75715e;"># 使用 Arch Chroot 进入刚安装的白板系统
+</span></code></pre>
+<h3 id="时区">时区</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>ln</span><span style="font-style:italic;color:#fd971f;"> -sf</span><span> /usr/share/zoneinfo/Asia/Shanghai /etc/localtime </span><span style="color:#75715e;"># 设置时区为上海
+</span><span>hwclock</span><span style="font-style:italic;color:#fd971f;"> --systohc --utc </span><span style="font-style:italic;color:#75715e;"># 同步时钟
+</span></code></pre>
+<h3 id="本地化">本地化</h3>
+<p>只使用英文 tty 避免报错的时候全是方块或者不能识别的的奇妙符号。</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#66d9ef;">echo </span><span style="color:#e6db74;">&#39;en_US.UTF-8 UTF-8&#39; </span><span style="color:#f92672;">&gt;&gt;</span><span> /etc/locale.gen
+</span><span style="color:#66d9ef;">echo </span><span style="color:#e6db74;">&#39;zh_CN.UTF-8 UTF-8&#39; </span><span style="color:#f92672;">&gt;&gt;</span><span> /etc/locale.gen
+</span><span>locale-gen
+</span><span style="color:#66d9ef;">echo</span><span> LANG=en_US.UTF-8 </span><span style="color:#f92672;">&gt;</span><span> /etc/locale.conf
+</span></code></pre>
+<h3 id="Hostname">Hostname</h3>
+<p>设置主机名称
+要设置 <code>hostname</code>，将其添加 到 <code>/etc/hostname</code>,<code>myhostname</code> 是需要的主机名</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#66d9ef;">echo</span><span> myhostname </span><span style="color:#f92672;">&gt;</span><span> /etc/hostname
+</span></code></pre>
+<h3 id="Dhcp_服务">Dhcp 服务</h3>
+<p>这个关系到装好之后能否<strong>上网</strong>，由于 Vmware 不需要无限  WiFi 什么的所以这里只有有限安装。
+WiFi 驱动安装见这里</p>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>ip link </span><span style="color:#75715e;"># 查看你的网卡
+</span><span>systemctl enable dhcpd@ens33 </span><span style="color:#75715e;"># ens33 通常是你非 lo 的另外一个，可能与我的不一样。
+</span></code></pre>
+<h3 id="设置密码">设置密码</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>passwd
+</span></code></pre>
+<h3 id="添加用户">添加用户</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span>useradd</span><span style="font-style:italic;color:#fd971f;"> -m</span><span> username </span><span style="color:#75715e;"># 创建用户的同时创建 Home 目录
+</span><span>passwd username </span><span style="color:#75715e;"># 设置用户密码
+</span></code></pre>
+<h3 id="重启">重启</h3>
+<pre data-lang="bash" style="background-color:#272822;color:#f8f8f2;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#66d9ef;">exit
+</span><span>umount</span><span style="font-style:italic;color:#fd971f;"> -R</span><span> /mnt
+</span><span>reboot
+</span></code></pre>
+<hr />
+<p>那么系统安装就告一段落了，如果还是不理解可以看下面的这段视频。（配音很尴尬。。）
+<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=12933746&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed></p>
+<h2 id="未完待续">未完待续</h2>
+<p>下次将会更新 ArchLinux 安装的 GUI 部分</p>
+
+    </section>
+    <section class="post-footer">
+        
+        
+<div class="tags">
+    <i class="fa-solid fa-tags"></i>
+    
+        <span class="tag"><a href="">ArchLinux</a></span>
+    
+</div>
+
+    </section>
+    
+    <section class="comments">
+        
+<script src="https://giscus.app/client.js"
+    data-repo="EINDEX&#x2F;blog"
+    data-repo-id="R_kgDOGWb6Yg"
+    data-category-id="DIC_kwDOGWb6Ys4CAKn-"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+    </section>
+    
+</article>
+
+
+        </main>
+        <aside>
+            
+        </aside>
+    </div>
+    <footer class="footer">
+  <div class="content">
+    <div class="item">
+    </div>
+    <div class="item"></div>
+    <div class="item profile">
+      <img class="avatar" src="/images/avatar.png" />
+      <ul class="links">
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;github.com&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-github"></i><span>Github</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;twitter.com&#x2F;eindex_li" rel="me" target="_blank"
+            ><i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;t.me&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-telegram"></i><span>Telegram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="mailto:eindex.me@outlook.com" rel="me" target="_blank"
+            ><i class="fas fa-envelope"></i><span>Email</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    
+    
+  
+  <span class="webring">
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous">←</a>
+An IndieWeb Webring 🕸💍
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next">→</a>
+</span>
+  <a
+    class="powered-by"
+    href="https://github.com/EINDEX/qingzhuo"
+    target="_blank"
+    >Powered By QingZhuo
+  </a>
+  
+</footer>
+
+  </body>
+  
+</html>

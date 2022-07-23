@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+  
+
+
+
+
+
+<head>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://preview.blog-2j7.pages.dev/feed.xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="author" itemprop="author" content="EINDEX">
+  
+  <title>KMP 算法 &bull; EINDEX&#x27;s Blog</title>
+  <meta property="og:title" content="KMP 算法 &bull; EINDEX&#x27;s Blog" />
+  
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+
+
+  <!-- **** BEGINNING, favicons **** -->
+
+  <!-- generics -->
+
+  <!-- iOS -->
+
+  <!-- Android -->
+
+  <!-- Windows 8, IE 10 -->
+
+  <!-- Windows 8.1 and up, IE 11 -->
+
+  <!-- **** CONCLUSION, favicons **** -->
+
+  <!-- CSS/SCSS -->
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" />  <style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style>
+  
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f">
+
+  <link rel="webmention" href="https://webmention.io/eindex.me/webmention" />
+  <link rel="pingback" href="https://webmention.io/eindex.me/xmlrpc" />
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+
+  
+    
+  
+
+  
+    
+  
+    
+  
+
+
+
+
+
+<meta property="og:url" content="https://preview.blog-2j7.pages.dev/posts/kmp/">
+<meta property="og:site_name" content="EINDEX&#x27;s Blog">
+<meta property="og:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KMP 算法 &bull; EINDEX&#x27;s Blog">
+
+<meta name="twitter:site" content="@eindex_li">
+<meta name="twitter:creator" content="@eindex_li">
+<meta name="twitter:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "KMP 算法",
+      "image": "https://preview.blog-2j7.pages.dev/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://preview.blog-2j7.pages.dev/posts/kmp/"
+      },
+      
+      "datePublished": "2018-05-11",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://preview.blog-2j7.pages.dev/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://preview.blog-2j7.pages.dev/images/avatar.png"
+      },
+      "keywords": ["算法","KMP","Python"]
+    }
+</script>
+
+  
+  
+  
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="items">
+      <li>
+        
+        <a class="site-link" href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;"><img
+            class="avatar"
+            src="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;processed_images&#x2F;985d495e6e585ad000.png"
+            alt="Workflow"
+        /><span class="site-name">EINDEX&#x27;s Blog</span></a>
+      </li>
+      <li class="delimiter"></li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/archive/"
+          >归档</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/links/"
+          >友链</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/about/"
+          >关于</a
+        >
+      </li>
+      
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <main>
+            
+  <article data-clarity-region="article">
+    
+<section class="header">
+<section class="title-area">
+    
+    <h1 class="title">  
+    <a href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;posts&#x2F;kmp&#x2F;">KMP 算法</a>
+    </h1>
+  </section>
+  <section class="meta-area">
+  
+    <span><i class="far fa-calendar-days"></i><time>2018-05-11</time></span>
+  
+  
+    
+    
+    <a class="categories"  href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;categories&#x2F;suan-fa&#x2F;"><i class="fa-solid fa-inbox"></i>算法</a>
+  
+    <span><i class="fas fa-clock"></i> 4 mins</span>
+  </section>
+</section>
+
+    <section class="main">
+        
+        <blockquote>
+<p>在计算机科学中，Knuth-Morris-Pratt字符串查找算法（简称为KMP算法）可在一个主文本字符串S内查找一个词W的出现位置。此算法通过运用对这个词在不匹配时本身就包含足够的信息来确定下一个匹配将在哪里开始的发现，从而避免重新检查先前匹配的字符。</p>
+</blockquote>
+<span id="continue-reading"></span>
+<blockquote>
+<p>这个算法是由高德纳（Donald Ervin Knuth）和沃恩·普拉特在1974年构思，同年詹姆斯·H·莫里斯也独立地设计出该算法，最终由三人于1977年联合发表。</p>
+</blockquote>
+<h2 id="原理">原理</h2>
+<p>将待匹配字符串命名为 m 源字符串命名为 S 。
+本算法对待匹配字符串做处理之后，找到他的真前缀和真后缀。并通过真前缀与后缀重合的数量的值，这个值是在匹配状态中发生矢配时，位于原始字符串上 S 的指针移动的方向与距离。</p>
+<p>简单的说就是匹配失败时。通过之前的真前缀和后缀表，直接移动在匹配字符串上的指针，达到减少无用匹配的效果。</p>
+<h2 id="优点">优点</h2>
+<p>节约时间，相比于朴素的匹配方式，新的匹配算法只需要 O(m + n)的时间复杂度 和 额外 O(m)的空间，这个空间是用来保存真前缀和真后缀的结果的。</p>
+<h2 id="实现">实现</h2>
+<p>KMP 匹配的关键在于初始化匹配字符串。</p>
+<pre data-lang="python" style="background-color:#272822;color:#f8f8f2;" class="language-python "><code class="language-python" data-lang="python"><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">partial_table</span><span>(</span><span style="font-style:italic;color:#fd971f;">pattern</span><span>:</span><span style="font-style:italic;color:#66d9ef;">str</span><span>):
+</span><span>    </span><span style="color:#75715e;">&quot;&quot;&quot;
+</span><span style="color:#75715e;">    当字符串长度为1的时候，不需要进行查表，直接循环匹配时间复杂度就是 O(n)
+</span><span style="color:#75715e;">    &quot;&quot;&quot;
+</span><span>    front </span><span style="color:#f92672;">= </span><span>[pattern[:x</span><span style="color:#f92672;">+</span><span style="color:#ae81ff;">1</span><span>] </span><span style="color:#f92672;">for </span><span>x </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#66d9ef;">len</span><span>(pattern))]
+</span><span>
+</span><span>    </span><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">cal_table_val</span><span>(</span><span style="font-style:italic;color:#fd971f;">sub_pattern</span><span>):
+</span><span>        </span><span style="color:#f92672;">return </span><span style="color:#66d9ef;">max</span><span>([</span><span style="color:#ae81ff;">0</span><span>]</span><span style="color:#f92672;">+</span><span>[</span><span style="color:#66d9ef;">len</span><span>(front[:i]) </span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#66d9ef;">len</span><span>(sub_pattern)) </span><span style="color:#f92672;">if </span><span>sub_pattern[</span><span style="color:#f92672;">-</span><span>i:] </span><span style="color:#f92672;">in </span><span>front[:i]])
+</span><span>
+</span><span>    </span><span style="color:#f92672;">return </span><span>[cal_table_val(pattern[:i </span><span style="color:#f92672;">+ </span><span style="color:#ae81ff;">1</span><span>]) </span><span style="color:#f92672;">for </span><span>i </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">range</span><span>(</span><span style="color:#66d9ef;">len</span><span>(pattern))]
+</span><span>
+</span><span>
+</span><span style="font-style:italic;color:#f92672;">def </span><span style="color:#a6e22e;">kmp</span><span>(</span><span style="font-style:italic;color:#fd971f;">pattern</span><span>, </span><span style="font-style:italic;color:#fd971f;">string</span><span>, </span><span style="font-style:italic;color:#fd971f;">first</span><span style="color:#f92672;">=</span><span style="color:#ae81ff;">True</span><span>):
+</span><span>    </span><span style="color:#f92672;">if not </span><span>pattern </span><span style="color:#f92672;">or not </span><span>string:
+</span><span>        </span><span style="color:#f92672;">return -</span><span style="color:#ae81ff;">1
+</span><span>    
+</span><span>    res </span><span style="color:#f92672;">= </span><span>[]
+</span><span>    </span><span style="color:#75715e;"># 匹配字符串长度为1 不需要建表
+</span><span>    </span><span style="color:#f92672;">if </span><span style="color:#66d9ef;">len</span><span>(pattern) </span><span style="color:#f92672;">== </span><span style="color:#ae81ff;">1</span><span>:
+</span><span>        </span><span style="color:#f92672;">for </span><span>i, k </span><span style="color:#f92672;">in </span><span style="color:#66d9ef;">enumerate</span><span>(string):
+</span><span>            </span><span style="color:#f92672;">if </span><span>k </span><span style="color:#f92672;">== </span><span>pattern:
+</span><span>                </span><span style="color:#f92672;">if </span><span>first:
+</span><span>                    </span><span style="color:#f92672;">return </span><span>i
+</span><span>                res.append(i)
+</span><span>        </span><span style="color:#f92672;">return </span><span>res
+</span><span>
+</span><span>    pt </span><span style="color:#f92672;">= </span><span>partial_table(pattern)
+</span><span>    i, j </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0</span><span>, </span><span style="color:#ae81ff;">0
+</span><span>    lp, ls </span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">len</span><span>(pattern), </span><span style="color:#66d9ef;">len</span><span>(string)
+</span><span>    compile_flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">False
+</span><span>    </span><span style="color:#f92672;">while </span><span>j </span><span style="color:#f92672;">- </span><span>i </span><span style="color:#f92672;">&lt; </span><span>ls </span><span style="color:#f92672;">- </span><span>lp:
+</span><span>        </span><span style="color:#f92672;">if </span><span>string[j] </span><span style="color:#f92672;">== </span><span>pattern[i]:
+</span><span>            i </span><span style="color:#f92672;">+= </span><span style="color:#ae81ff;">1
+</span><span>            j </span><span style="color:#f92672;">+= </span><span style="color:#ae81ff;">1          
+</span><span>            compile_flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">True
+</span><span>            </span><span style="color:#f92672;">if </span><span>i </span><span style="color:#f92672;">== </span><span style="color:#66d9ef;">len</span><span>(pattern):
+</span><span>                </span><span style="color:#f92672;">if </span><span>first:
+</span><span>                    </span><span style="color:#f92672;">return </span><span>j </span><span style="color:#f92672;">- </span><span>i
+</span><span>                res.append(j </span><span style="color:#f92672;">- </span><span>i)
+</span><span>                i </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0
+</span><span>        </span><span style="color:#f92672;">elif </span><span>string[j] </span><span style="color:#f92672;">!= </span><span>pattern[i] </span><span style="color:#f92672;">and </span><span>compile_flag:
+</span><span>            </span><span style="color:#75715e;"># 之前为匹配状态 需要移动匹配数组指针
+</span><span>            compile_flag </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">False
+</span><span>            i </span><span style="color:#f92672;">-= </span><span>i </span><span style="color:#f92672;">- </span><span>pt[i</span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">1</span><span>]
+</span><span>        </span><span style="color:#f92672;">elif </span><span>string[j] </span><span style="color:#f92672;">!= </span><span>pattern[i] </span><span style="color:#f92672;">and not </span><span>compile_flag:
+</span><span>            </span><span style="color:#75715e;"># 之前为不匹配状态 匹配指针归 0 
+</span><span>            i </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">0
+</span><span>            j </span><span style="color:#f92672;">+= </span><span style="color:#ae81ff;">1
+</span><span>
+</span><span>    </span><span style="color:#f92672;">return </span><span>res
+</span><span>
+</span><span>partial_table(</span><span style="color:#e6db74;">&#39;ABCDABD&#39;</span><span>) </span><span style="color:#75715e;"># [0, 0, 0, 0, 1, 2, 0]
+</span><span>kmp(</span><span style="color:#e6db74;">&#39;ABCDABD&#39;</span><span>,</span><span style="color:#e6db74;">&#39;BBC ABCDAB ABCDABCDABDE&#39;</span><span>) </span><span style="color:#75715e;"># 15
+</span><span>
+</span><span>
+</span></code></pre>
+
+    </section>
+    <section class="post-footer">
+        
+        
+<div class="tags">
+    <i class="fa-solid fa-tags"></i>
+    
+        <span class="tag"><a href="">KMP</a></span>
+    
+        <span class="tag"><a href="">Python</a></span>
+    
+</div>
+
+    </section>
+    
+    <section class="comments">
+        
+<script src="https://giscus.app/client.js"
+    data-repo="EINDEX&#x2F;blog"
+    data-repo-id="R_kgDOGWb6Yg"
+    data-category-id="DIC_kwDOGWb6Ys4CAKn-"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+    </section>
+    
+</article>
+
+
+        </main>
+        <aside>
+            
+        </aside>
+    </div>
+    <footer class="footer">
+  <div class="content">
+    <div class="item">
+    </div>
+    <div class="item"></div>
+    <div class="item profile">
+      <img class="avatar" src="/images/avatar.png" />
+      <ul class="links">
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;github.com&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-github"></i><span>Github</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;twitter.com&#x2F;eindex_li" rel="me" target="_blank"
+            ><i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;t.me&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-telegram"></i><span>Telegram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="mailto:eindex.me@outlook.com" rel="me" target="_blank"
+            ><i class="fas fa-envelope"></i><span>Email</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    
+    
+  
+  <span class="webring">
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous">←</a>
+An IndieWeb Webring 🕸💍
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next">→</a>
+</span>
+  <a
+    class="powered-by"
+    href="https://github.com/EINDEX/qingzhuo"
+    target="_blank"
+    >Powered By QingZhuo
+  </a>
+  
+</footer>
+
+  </body>
+  
+</html>

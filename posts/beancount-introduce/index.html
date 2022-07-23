@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+  
+
+
+
+
+
+<head>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://preview.blog-2j7.pages.dev/feed.xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="author" itemprop="author" content="EINDEX">
+  
+  <title>复式记账工具 Beancount &bull; EINDEX&#x27;s Blog</title>
+  <meta property="og:title" content="复式记账工具 Beancount &bull; EINDEX&#x27;s Blog" />
+  
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+
+
+  <!-- **** BEGINNING, favicons **** -->
+
+  <!-- generics -->
+
+  <!-- iOS -->
+
+  <!-- Android -->
+
+  <!-- Windows 8, IE 10 -->
+
+  <!-- Windows 8.1 and up, IE 11 -->
+
+  <!-- **** CONCLUSION, favicons **** -->
+
+  <!-- CSS/SCSS -->
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" />  <style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style>
+  
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f">
+
+  <link rel="webmention" href="https://webmention.io/eindex.me/webmention" />
+  <link rel="pingback" href="https://webmention.io/eindex.me/xmlrpc" />
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+
+  
+    
+  
+
+  
+    
+  
+
+
+
+
+
+<meta property="og:url" content="https://preview.blog-2j7.pages.dev/posts/beancount-introduce/">
+<meta property="og:site_name" content="EINDEX&#x27;s Blog">
+<meta property="og:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="复式记账工具 Beancount &bull; EINDEX&#x27;s Blog">
+
+<meta name="twitter:site" content="@eindex_li">
+<meta name="twitter:creator" content="@eindex_li">
+<meta name="twitter:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "复式记账工具 Beancount",
+      "image": "https://preview.blog-2j7.pages.dev/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://preview.blog-2j7.pages.dev/posts/beancount-introduce/"
+      },
+      
+      "datePublished": "2019-11-30",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://preview.blog-2j7.pages.dev/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://preview.blog-2j7.pages.dev/images/avatar.png"
+      },
+      "keywords": ["投资","Beancount"]
+    }
+</script>
+
+  
+  
+  
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="items">
+      <li>
+        
+        <a class="site-link" href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;"><img
+            class="avatar"
+            src="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;processed_images&#x2F;985d495e6e585ad000.png"
+            alt="Workflow"
+        /><span class="site-name">EINDEX&#x27;s Blog</span></a>
+      </li>
+      <li class="delimiter"></li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/archive/"
+          >归档</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/links/"
+          >友链</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/about/"
+          >关于</a
+        >
+      </li>
+      
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <main>
+            
+  <article data-clarity-region="article">
+    
+<section class="header">
+<section class="title-area">
+    
+    <h1 class="title">  
+    <a href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;posts&#x2F;beancount-introduce&#x2F;">复式记账工具 Beancount</a>
+    </h1>
+  </section>
+  <section class="meta-area">
+  
+    <span><i class="far fa-calendar-days"></i><time>2019-11-30</time></span>
+  
+  
+    
+    
+    <a class="categories"  href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;categories&#x2F;tou-zi&#x2F;"><i class="fa-solid fa-inbox"></i>投资</a>
+  
+    <span><i class="fas fa-clock"></i> 6 mins</span>
+  </section>
+</section>
+
+    <section class="main">
+        
+        <p>本文简单介绍一下复式记账和 Beancount 的使用方法。</p>
+<span id="continue-reading"></span><h2 id="为什么要记账">为什么要记账</h2>
+<p>记账是理财的第一步，熟话说得好：”你不理财，才不理你。“</p>
+<p>记账可以明确自己每一笔钱花在哪去了，这个月最大的开销是什么，以及对自己的冲动消费、不必要消费能有一个反思。</p>
+<p>我曾使用过很多记账软件如：挖财、随手记、网易有钱、MoneyWiz、MOZE 等，其实记账最大的问题在于很难坚持下来，因为短期来看记账的收益并不高，而从长远来看，账本也能体现经济的健康状况。</p>
+<h2 id="复式记账是什么">复式记账是什么</h2>
+<p>复式记账（Double Entry Bookkeeping）是以资产与权益平衡关系作为记账基础，对每一笔账单，都要以相等的金额在两个相互联系的账户中进行记录。</p>
+<p>原理：
+<code>资产 = 负债 + 所有者权益</code></p>
+<p>复式记账的优点是：</p>
+<ul>
+<li>账户对应关系清楚，可以鲜明的表示各种经济活动的来龙去脉。</li>
+<li>有借必有贷，借贷必相等的记账方式，对于检查账单是否记对非常有帮助。</li>
+</ul>
+<h2 id="何为_Beancount">何为 Beancount</h2>
+<p>Beancount 是一个用 Python 实现的开源复式记账软件。</p>
+<p>数据文件基于纯文本，所以不用担心程序出问题，数据没法看懂。</p>
+<p>Beancount（fava）的界面大概是这个样子。
+<img src="https://preview.blog-2j7.pages.dev/posts/beancount-introduce/media/15676038764861/15676114899083.jpg" alt="-w2638" />
+<img src="https://preview.blog-2j7.pages.dev/posts/beancount-introduce/media/15676038764861/15676115071325.jpg" alt="-w1319" /></p>
+<p>Beancount 的优点：</p>
+<ol>
+<li>开源，可以自己写功能。</li>
+<li>数据基于纯文本，自己掌握所有数据，不担心隐私泄露。</li>
+<li>支持各种图标，支持SQL查询生成报表。</li>
+<li>支持预算（fava）。</li>
+<li>支持无限账本、无限账户、无限币种。</li>
+<li>可以导入各种账单文件（有些需要写代码支持）。</li>
+<li>可以用 Git、iCloud 等工具来管理账本。</li>
+</ol>
+<p>不仅如此，Beancount 还可以量化年假，产假等等非标准金融标的。</p>
+<p>例如讲公司年假记为一笔收入，从公司账户转入到个人账户，成为资产。使用掉年假，则把年假从个人资产转出到消费即可。这样就相当于把年假消费掉了。而年假的货币单位可以设置成 Day。</p>
+<p>写在 Beancount 里大概是这个样子。</p>
+<pre data-lang="beancount" style="background-color:#272822;color:#f8f8f2;" class="language-beancount "><code class="language-beancount" data-lang="beancount"><span>2019-04-24 * &quot;CompanyName&quot; &quot;请假一天休息&quot;
+</span><span>  Assets:Leave                              -1.00 DAY
+</span><span>  Expenses:Health
+</span><span>
+</span><span>2019-04-01 * &quot;CompanyName&quot; &quot;年假-初始化&quot;
+</span><span>  Income:Job:CompanyName:Leave
+</span><span>  Assets:Leave                                 +7.00 DAY
+</span></code></pre>
+<h2 id="基本语法">基本语法</h2>
+<h3 id="基本格式">基本格式</h3>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>YYYY-MM-DD &lt;directive&gt; &lt;arguments...&gt;
+</span></code></pre>
+<h3 id="创建货币">创建货币</h3>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>option &quot;operating_currency&quot; &quot;CNY&quot;
+</span></code></pre>
+<h3 id="账户相关">账户相关</h3>
+<p>创建账户</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>1970-01-01 open Assets:Bank:ABC CNY
+</span></code></pre>
+<p>备注账户</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>1970-01-01 note Assets:Bank:ABC &quot;农行卡&quot;
+</span></code></pre>
+<p>关闭帐户，账户关闭后就可以在现实界面上过滤掉已经关闭的账户。</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>1970-01-02 close Assets:Bank:ABC
+</span></code></pre>
+<h3 id="交易">交易</h3>
+<p>这是单笔简单交易的写法，表示我去美食风暴用微信支付吃了个盒饭。</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>2019-08-02 * &quot;美食风暴&quot; &quot;盒饭&quot;
+</span><span>  Assets:Wechat:EINDEX                                  -18 CNY
+</span><span>  Expenses:Food:Restaurant:Lunch       
+</span></code></pre>
+<h3 id="设置价格">设置价格</h3>
+<p>可以这是各种“货币”之间的价格转换。如果用上程序员思维，我们就可以实现股票价格跟踪、汇率跟踪等等。来提高账本的准确度。</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>2019-10-01 price USD 7 CNY
+</span></code></pre>
+<h3 id="余额自动设置">余额自动设置</h3>
+<p>这是一个偷懒必备功能，下面的 <code>pad</code>，我农行卡自动平账使用<code>Equity:Opening-Balances</code>，明天的 <code>balance</code> 表示在 2019年10月02日时这张卡的余额为4000CNY，如果旧的账单不平就会从<code>Equity:Opening-Balances</code>自动平账。</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>2019-10-01 pad Assets:Bank:ABC Equity:Opening-Balances
+</span><span>
+</span><span>2019-10-02 balance Assets:Bank:ABC 4000 CNY
+</span></code></pre>
+<p>如果未来要在这个账户过去的账目上做删改，2019年10月1日的余额也会是4000元不变。</p>
+<h2 id="使用_Beancount">使用 Beancount</h2>
+<p>首先需要安装 Python 3，然后安装 beancount、fava。</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>pip install beancount fava
+</span></code></pre>
+<p><code>fava</code> 是 beancount 的一个 WebUI 实现，可以可视化的看见自己的账本。</p>
+<h3 id="Example">Example</h3>
+<p>官方提供了一个 Beancount 的使用用例。</p>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>bean-example &gt; example.bean
+</span><span>fava example.bean
+</span></code></pre>
+<p>然后打开 <code>localhost:5000</code> 就可以在本地体验 Beancount 与 fava 了。</p>
+<p><img src="https://preview.blog-2j7.pages.dev/posts/beancount-introduce/media/15676038764861/15676114399432.jpg" alt="-w1315" /></p>
+
+    </section>
+    <section class="post-footer">
+        
+        
+<div class="tags">
+    <i class="fa-solid fa-tags"></i>
+    
+        <span class="tag"><a href="">Beancount</a></span>
+    
+</div>
+
+    </section>
+    
+    <section class="comments">
+        
+<script src="https://giscus.app/client.js"
+    data-repo="EINDEX&#x2F;blog"
+    data-repo-id="R_kgDOGWb6Yg"
+    data-category-id="DIC_kwDOGWb6Ys4CAKn-"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+    </section>
+    
+</article>
+
+
+        </main>
+        <aside>
+            
+        </aside>
+    </div>
+    <footer class="footer">
+  <div class="content">
+    <div class="item">
+    </div>
+    <div class="item"></div>
+    <div class="item profile">
+      <img class="avatar" src="/images/avatar.png" />
+      <ul class="links">
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;github.com&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-github"></i><span>Github</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;twitter.com&#x2F;eindex_li" rel="me" target="_blank"
+            ><i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;t.me&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-telegram"></i><span>Telegram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="mailto:eindex.me@outlook.com" rel="me" target="_blank"
+            ><i class="fas fa-envelope"></i><span>Email</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    
+    
+  
+  <span class="webring">
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous">←</a>
+An IndieWeb Webring 🕸💍
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next">→</a>
+</span>
+  <a
+    class="powered-by"
+    href="https://github.com/EINDEX/qingzhuo"
+    target="_blank"
+    >Powered By QingZhuo
+  </a>
+  
+</footer>
+
+  </body>
+  
+</html>

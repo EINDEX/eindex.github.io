@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+  
+
+
+
+
+
+<head>
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://preview.blog-2j7.pages.dev/feed.xml">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="author" itemprop="author" content="EINDEX">
+  
+  <title>My HomeLab &bull; EINDEX&#x27;s Blog</title>
+  <meta property="og:title" content="My HomeLab &bull; EINDEX&#x27;s Blog" />
+  
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+
+
+  <!-- **** BEGINNING, favicons **** -->
+
+  <!-- generics -->
+
+  <!-- iOS -->
+
+  <!-- Android -->
+
+  <!-- Windows 8, IE 10 -->
+
+  <!-- Windows 8.1 and up, IE 11 -->
+
+  <!-- **** CONCLUSION, favicons **** -->
+
+  <!-- CSS/SCSS -->
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" />  <style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style>
+  
+  <link rel="stylesheet" href="https://preview.blog-2j7.pages.dev/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f">
+
+  <link rel="webmention" href="https://webmention.io/eindex.me/webmention" />
+  <link rel="pingback" href="https://webmention.io/eindex.me/xmlrpc" />
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-512.png">
+  
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+  
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  
+  <link rel="manifest" href="/manifest.json">
+
+  
+
+
+
+  
+    
+  
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+<meta property="og:url" content="https://preview.blog-2j7.pages.dev/posts/my-homelab-introduce/">
+<meta property="og:site_name" content="EINDEX&#x27;s Blog">
+<meta property="og:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My HomeLab &bull; EINDEX&#x27;s Blog">
+
+<meta name="twitter:site" content="@eindex_li">
+<meta name="twitter:creator" content="@eindex_li">
+<meta name="twitter:image" content="https://preview.blog-2j7.pages.dev/images/avatar.png">
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "My HomeLab",
+      "image": "https://preview.blog-2j7.pages.dev/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://preview.blog-2j7.pages.dev/posts/my-homelab-introduce/"
+      },
+      
+      "datePublished": "2022-05-15",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://preview.blog-2j7.pages.dev/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://preview.blog-2j7.pages.dev/images/avatar.png"
+      },
+      "keywords": ["HomeLab","K3S","Proxmox VE","Self-Hosted","Docker"]
+    }
+</script>
+
+  
+  
+  
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="items">
+      <li>
+        
+        <a class="site-link" href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;"><img
+            class="avatar"
+            src="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;processed_images&#x2F;985d495e6e585ad000.png"
+            alt="Workflow"
+        /><span class="site-name">EINDEX&#x27;s Blog</span></a>
+      </li>
+      <li class="delimiter"></li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/archive/"
+          >归档</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/links/"
+          >友链</a
+        >
+      </li>
+      
+      <li class="button">
+        <a
+          href="https://preview.blog-2j7.pages.dev/about/"
+          >关于</a
+        >
+      </li>
+      
+    </ul>
+</nav>
+
+
+    <div class="content">
+        <main>
+            
+  <article data-clarity-region="article">
+    
+<section class="header">
+<section class="title-area">
+    
+    <h1 class="title">  
+    <a href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;posts&#x2F;my-homelab-introduce&#x2F;">My HomeLab</a>
+    </h1>
+  </section>
+  <section class="meta-area">
+  
+    <span><i class="far fa-calendar-days"></i><time>2022-05-15</time></span>
+  
+  
+    
+    
+    <a class="categories"  href="https:&#x2F;&#x2F;preview.blog-2j7.pages.dev&#x2F;categories&#x2F;homelab&#x2F;"><i class="fa-solid fa-inbox"></i>HomeLab</a>
+  
+    <span><i class="fas fa-clock"></i> 9 mins</span>
+  </section>
+</section>
+
+    <section class="main">
+        
+        <p>这篇文章将会介绍一下我的 HomeLab。</p>
+<p>为什么会建设 HomeLab，它给我带来了什么价值？以及为什么是现在的结构，解决了什么问题。</p>
+<span id="continue-reading"></span><h2 id="结缘">结缘</h2>
+<p>在 2017 年末，我遇到一个艰难的问题，我有很多设备，小米手机，iPad，MacBook Pro，之前用的 Resilio Sync(原 BTSync)，也需要翻墙才能同步文件。 Google Photos 在墙内的使用体验也日渐下降。</p>
+<p>机缘巧合之下，Synology 出现在我的面前。一拍脑袋，搞了一个 Synology 218+。</p>
+<p>单纯的我当时只是想同步一下文件，给 MacBook 加上 Time Machine，并没想道这是我和 HomeLab 缘分的开始。</p>
+<h2 id="时间线">时间线</h2>
+<h3 id="早期">早期</h3>
+<p>主要是使用一些 Synology 原生功能，如 Moments，Video，Drive，Note 等，然后在 Docker 里跑了一两个简单的服务。单纯就用来备份照片，数据，剪裁网页啥的。</p>
+<p>维护成本也很低。直到某一天我发现 <a href="https://synocommunity.com/">Synology Community</a>，这里面有很多奇奇怪怪的 package，稍微研究了一下，就打开了新世界的大门。</p>
+<p>这里面有各种各样的 Self-hosted 服务，多媒体自动化，下载的，书籍管理，文件同步，RSS 和一些 DSM 并不自带的系统命令。</p>
+<p>迫于追剧的需求，我当在群晖里增加了多媒体自动化没，当时用的 Jackett，Sonarr，Radarr，Emby 一套，用来自动下载，刮削，看视频，看电影。同时将服务管理到 docker-compose 里。</p>
+<h3 id="更多需求">更多需求</h3>
+<p>由于换到新公司，工作压力没有之前那么大。有更多的时间去折腾 HomeLab，先是用了个电脑搭建了 OMV，直到某天 U 盘系统崩了，于是心一横买了稳定且性能更强的 Synology 920+。</p>
+<p>这个阶段开始使用 Traefik 做为 Ingress，所有服务有一个中心化的入口，再也不用背各种端口号了。</p>
+<p>还引入了一些新服务，Organizr 当作 application dashboard，Home Assistant 作为家庭自动化中枢，Bitwarden 作为密码管理器，qBittorrent 用来下载，Bazarr 用来寻找字幕，Miniflux 作为 RSS 阅读器。</p>
+<h3 id="虚拟化_与_K3S">虚拟化 与 K3S</h3>
+<p>在折腾的过程中，服务越来越多，可维护性与可见性快速下降，同时性能也快接触到 D920+ 的瓶颈。</p>
+<p>为了一口气解决这些问题，我希望找到一种把程序和数据分开，计算和控制分开，写的配置最好是可以方便的代码化，可以快速恢复。</p>
+<p>在一些调研之后，采用 K3S in Proxmox VE 的模式去运行。即是在 PVE 里运行一个或多个 K3S 的虚拟机。组成一个 K3S 集群。这个方案其实很接近 <code>TrueNAS SCALE</code> 想法，奈何我想让我可以在 PVE 里可以快速的启动一个 X86-64 的 linux lxc 环境，进行快速的测试，而那是 TrueNAS SCALE 还在测试阶段，唉～</p>
+<h2 id="HomeLab_的_现状">HomeLab 的 现状</h2>
+<p>现在所有的服务都 PVE 服务器的 K3S 里，数据通过 nfs 存放在群晖中。</p>
+<p>现在运行了更多的服务，媒体自动化方面增加了 Overseerr，Servrr 新出的 Prowlarr，EMBY 替换成了 Plex；阅读方面增加了 Rsshub，Miniflux 替换成了 FreshRSS。</p>
+<p>关于可见性方面，增加了 Graylog 作为日志中心（有点重，还在寻找替代品或者给服务器增加点性能），HealthChecks 用来查看定时任务的更新情况。</p>
+<p>可维护性方面，增加了 Keel 自动化更新服务，增加了 RocketChat 作为 ChatOps 的入口。</p>
+<p>安全方面 Authentik 做了集中的认证中心，虽然各个服务对 SSO 的支持并不完善，如果不支持 SSO 会在放在 SSO 后面要求再次登录。</p>
+<p>增加了开发相关的服务 Gitea + Drone CI + SonarQube，做了一套简单的 DevSecOps 工具链。</p>
+<p>整了一个新的工控机做为软路由。</p>
+<p>下面是现在的简单截图。</p>
+<p><img src="https://preview.blog-2j7.pages.dev/posts/my-homelab-introduce/./authentik.png" alt="" /></p>
+<p>当然还有一些服务是在命令行中运行的，就没有在此展示了。</p>
+<h3 id="未来">未来</h3>
+<p>设备方面，想采购一个更加正规的设备如 HPE MicroServer Gen10 Plus 或其他小型的服务器，来提供更多的性能，满足我对安静且占地小的需求。增加一些 AP，提高上网体验。</p>
+<p>服务方面，现在正在研究如何合理的托管 Beancount 的 webui Fava，如果不知道啥事 Beancount 可以看这篇[《复式记账工具 Beancount》]({{&lt; ref  &quot;/posts/beancount-introduce&quot; &gt;}})。
+考虑增加一个 8n8,来做服务建的桥梁，减少自己写代码实现的工作量。还期望弄个 code-server，可以随时随地有个可用的开发环境。
+增加一个 Clash 服务在 HomeLab 中，能快速的调整整个局域网中的上网规则。</p>
+<h2 id="HomeLab_对我的价值">HomeLab 对我的价值</h2>
+<h3 id="Well">Well</h3>
+<p>HomeLab 的存在首先是解决了我数据存储方面的问题，现在可用的存储空间大约有 8 ～ 10TB 左右，用来存储我的照片，追剧，电影，备份，代码库等，还是有一些余量的。在购买数码产品的时候，可以放心大胆的使用最小的存储空间。</p>
+<p>其次，如果我需要写代码，我可以在自己家里运行 CI/CD，反正设备已经是花了电费了，就不需要花时间研究如何白嫖，Github Action 或者是 Circle CI 了。<del>当然现在还嫖着。</del></p>
+<p>再是可以进行快速的实验，可以用来实践 Kubernetes，terraform 等 CNCF 相关服务，对我考 CKA 应该也是有所帮助的。</p>
+<p>最后是节约了时间，在有很多自动化服务的加持之下，我可以集中更多时间和精力去做自己想做的事情。</p>
+<h3 id="Less_Well">Less Well</h3>
+<p>性能拉胯，毕竟是在家跑服务，也做不到网上那些大佬，动不动整个机柜啥的，所以为了省电，性能优点拉胯。好在可以靠时间来拉平。</p>
+<p>搭建 HomeLab 里的各种服务，还是挺花时间的，好不容易节约的那些时间，都投入回去了 🥹。</p>
+<h2 id="结语">结语</h2>
+<p>这个东西真的很有趣，如果对 Self-Hosted 服务或者家庭实验室有兴趣，非常推荐整一个玩玩，当然最好是迭代着来，也许可以从树莓派开始？</p>
+<p>如果有对本文内容相关问题，欢迎在评论区与我探讨。</p>
+
+    </section>
+    <section class="post-footer">
+        
+        
+<div class="tags">
+    <i class="fa-solid fa-tags"></i>
+    
+        <span class="tag"><a href="">K3S</a></span>
+    
+        <span class="tag"><a href="">Proxmox VE</a></span>
+    
+        <span class="tag"><a href="">Self-Hosted</a></span>
+    
+        <span class="tag"><a href="">Docker</a></span>
+    
+</div>
+
+    </section>
+    
+    <section class="comments">
+        
+<script src="https://giscus.app/client.js"
+    data-repo="EINDEX&#x2F;blog"
+    data-repo-id="R_kgDOGWb6Yg"
+    data-category-id="DIC_kwDOGWb6Ys4CAKn-"
+    data-mapping="pathname"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-theme="light"
+    data-lang="zh-CN"
+    crossorigin="anonymous"
+    async>
+</script>
+
+    </section>
+    
+</article>
+
+
+        </main>
+        <aside>
+            
+        </aside>
+    </div>
+    <footer class="footer">
+  <div class="content">
+    <div class="item">
+    </div>
+    <div class="item"></div>
+    <div class="item profile">
+      <img class="avatar" src="/images/avatar.png" />
+      <ul class="links">
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;github.com&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-github"></i><span>Github</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;twitter.com&#x2F;eindex_li" rel="me" target="_blank"
+            ><i class="fab fa-twitter"></i><span>Twitter</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="https:&#x2F;&#x2F;t.me&#x2F;eindex" rel="me" target="_blank"
+            ><i class="fab fa-telegram"></i><span>Telegram</span>
+          </a>
+        </li>
+        
+        <li>
+          <a href="mailto:eindex.me@outlook.com" rel="me" target="_blank"
+            ><i class="fas fa-envelope"></i><span>Email</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    
+    
+  
+  <span class="webring">
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous">←</a>
+An IndieWeb Webring 🕸💍
+<a href="https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next">→</a>
+</span>
+  <a
+    class="powered-by"
+    href="https://github.com/EINDEX/qingzhuo"
+    target="_blank"
+    >Powered By QingZhuo
+  </a>
+  
+</footer>
+
+  </body>
+  
+</html>
