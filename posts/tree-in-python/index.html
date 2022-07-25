@@ -1,0 +1,235 @@
+<!doctype html><html charset=utf-8 lang=en><head><link href=https://eindex.me/feed.xml rel=alternate title=RSS type=application/rss+xml><meta content="IE=edge" http-equiv=X-UA-Compatible><meta content="text/html; charset=utf-8" http-equiv=content-type><meta content="width=device-width,initial-scale=1.0,maximum-scale=1" name=viewport><meta content=EINDEX itemprop=author name=author><title>Tree in Python • EINDEX's Blog</title><meta content="Tree in Python • EINDEX's Blog" property=og:title><meta charset=utf-8><link href="https://eindex.me/css/index.css?h=f8faf511a8be60c25ce46e10d43e25cc133e48203f3dc383262447b1abda9301" rel=stylesheet><style>@-moz-document url-prefix() {.lazy:-moz-loading {visibility:hidden;}}.ieOnly {display: none;}@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {.ieOnly {display: block;}}</style><link href="https://eindex.me/styles/fontawesome.min.css?h=7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f" rel=stylesheet><link href=https://webmention.io/eindex.me/webmention rel=webmention><link href=https://webmention.io/eindex.me/xmlrpc rel=pingback><link href=/favicon-512.png rel=apple-touch-icon sizes=512x512><link href=/favicon-512.png rel=icon sizes=512x512 type=image/png><link href=/favicon-192.png rel=icon sizes=192x192 type=image/png><link href=/manifest.json rel=manifest><meta content=https://eindex.me/posts/tree-in-python/ property=og:url><meta content="EINDEX's Blog" property=og:site_name><meta content=https://eindex.me/images/avatar.png property=og:image><meta content=summary name=twitter:card><meta content="Tree in Python • EINDEX's Blog" name=twitter:title><meta content=@eindex_li name=twitter:site><meta content=@eindex_li name=twitter:creator><meta content=https://eindex.me/images/avatar.png name=twitter:image><script type=application/ld+json>
+    {
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "Tree in Python",
+      "image": "https://eindex.me/images/avatar.png",
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://eindex.me/posts/tree-in-python/"
+      },
+      
+      "datePublished": "2018-04-08",
+      
+      
+      "author": {
+        "@type": "Person",
+        "name": "EINDEX",
+        "url": "https://eindex.me/about"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "EINDEX's Blog",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://eindex.me/images/avatar.png"
+      },
+      "keywords": ["Python","算法"]
+    }
+</script><script>(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ao1gr1m9ku");</script><body><nav class=navbar><ul class=items><li><a class=site-link href=https://eindex.me><img alt=Workflow class=avatar src=https://eindex.me/processed_images/985d495e6e585ad000.png><span class=site-name>EINDEX's Blog</span></a><li class=delimiter><li class=button><a href=https://eindex.me/archive/>归档</a><li class=button><a href=https://eindex.me/links/>友链</a><li class=button><a href=https://eindex.me/about/>关于</a></ul></nav><div class=content><main><article data-clarity-region=article><section class=header><section class=title-area><h1 class=title><a href=https://eindex.me/posts/tree-in-python/>Tree in Python</a></h1></section><section class=meta-area><span><i class="far fa-calendar-days"></i><time>2018-04-08</time></span><a class=categories href=https://eindex.me/categories/suan-fa/><i class="fa-solid fa-inbox"></i>算法</a><span><i class="fas fa-clock"></i> 7 mins</span></section></section><section class=main><p>树是计算机科学中常用的数据结构之一,常见的地方有，Java 的继承树等。 还有一些基于树的特殊数据结构，比如二叉树，B 树，等等。<p>本篇会讲述一些关于简单关于树的操作。</p><span id=continue-reading></span><h2 id=树的定义>树的定义</h2><blockquote><p>树（英语：tree）是一种抽象数据类型（ADT）或是实作这种抽象数据类型的数据结构，用来模拟具有树状结构性质的数据集合。它是由n（n>0）个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。它具有以下的特点：</blockquote><blockquote><ul><li>每个节点有零个或多个子节点<li>没有父节点的节点称为根节点<li>每一个非根节点有且只有一个父节点<li>除了根节点外，每个子节点可以分为多个不相交的子树</ul></blockquote><p>节选自 <a href=https://zh.wikipedia.org/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)>树(数据结构)</a><h2 id=定义数据结构>定义数据结构</h2><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>class </span><span style=text-decoration:underline;color:#a6e22e;>TreeNode</span><span>(</span><span style=text-decoration:underline;font-style:italic;color:#a6e22e;>object</span><span>):
+</span><span>    </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>    一个树节点
+</span><span style=color:#75715e;>    """
+</span><span>
+</span><span>    </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#66d9ef;>__init__</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>, </span><span style=font-style:italic;color:#fd971f;>value</span><span>, </span><span style=font-style:italic;color:#fd971f;>children</span><span>: </span><span style=font-style:italic;color:#66d9ef;>list </span><span style=color:#f92672;>= </span><span style=color:#ae81ff;>None</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>
+</span><span style=color:#75715e;>        :param value: 节点的值
+</span><span style=color:#75715e;>        :param children: 节点的子节点，一个 TreeNode 的列表
+</span><span style=color:#75715e;>        """
+</span><span>
+</span><span>        self.value </span><span style=color:#f92672;>= </span><span>value
+</span><span>
+</span><span>        </span><span style=color:#f92672;>if not </span><span>children:
+</span><span>            self.children </span><span style=color:#f92672;>= </span><span>[]
+</span><span>        </span><span style=color:#f92672;>elif not </span><span>self.value:
+</span><span>            self.children </span><span style=color:#f92672;>= </span><span>[]
+</span><span>        </span><span style=color:#f92672;>else</span><span>:
+</span><span>            self.children </span><span style=color:#f92672;>= </span><span>children
+</span><span>
+</span><span style=font-style:italic;color:#f92672;>class </span><span style=text-decoration:underline;color:#a6e22e;>Tree</span><span>(</span><span style=text-decoration:underline;font-style:italic;color:#a6e22e;>object</span><span>):
+</span><span>    </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>    树：基本树的数据结构
+</span><span style=color:#75715e;>    """
+</span><span>
+</span><span>    </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#66d9ef;>__init__</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>, </span><span style=font-style:italic;color:#fd971f;>root</span><span>: TreeNode </span><span style=color:#f92672;>or </span><span style=color:#ae81ff;>None</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>        传入根节点
+</span><span style=color:#75715e;>        :param root: 如果为 TreeNode 为根节点， 如果为 None 为空书
+</span><span style=color:#75715e;>        """
+</span><span>        </span><span style=color:#f92672;>if not </span><span>(root </span><span style=color:#f92672;>is </span><span style=color:#ae81ff;>None </span><span style=color:#f92672;>or </span><span style=color:#66d9ef;>isinstance</span><span>(root, TreeNode)):
+</span><span>            </span><span style=color:#f92672;>raise </span><span style=font-style:italic;color:#66d9ef;>AttributeError</span><span>(</span><span style=color:#e6db74;>'illegal root'</span><span>)
+</span><span>        self.root </span><span style=color:#f92672;>= </span><span>root
+</span></code></pre><h2 id=前序遍历>前序遍历</h2><p>先遍历根节点。在遍历孩子节点。 <img alt=前序遍历 src=https://eindex.me/posts/tree-in-python/media/15231560956719/%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.jpg><h3 id=循环版>循环版</h3><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span>    </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>preorder_traversal_while</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>        树的前序遍历
+</span><span style=color:#75715e;>        :return: list of tree node value
+</span><span style=color:#75715e;>        """
+</span><span>        res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>        </span><span style=color:#f92672;>if not </span><span>self.root:
+</span><span>            </span><span style=color:#f92672;>return </span><span>res
+</span><span>        stack </span><span style=color:#f92672;>= </span><span>[self.root]
+</span><span>
+</span><span>        </span><span style=color:#f92672;>while </span><span style=color:#66d9ef;>len</span><span>(stack):
+</span><span>            node </span><span style=color:#f92672;>= </span><span>stack.pop()
+</span><span>            </span><span style=color:#f92672;>if not </span><span>node.value:
+</span><span>                </span><span style=color:#f92672;>continue
+</span><span>            </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>node.children[::</span><span style=color:#f92672;>-</span><span style=color:#ae81ff;>1</span><span>]:
+</span><span>                stack.append(sub_node)
+</span><span>            res.append(node.value)
+</span><span>
+</span><span>        </span><span style=color:#f92672;>return </span><span>res
+</span></code></pre><h3 id=递归版>递归版</h3><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>preorder_traversal_recursion</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>        树的前序遍历
+</span><span style=color:#75715e;>        :return: list of tree node value
+</span><span style=color:#75715e;>        """
+</span><span>        res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>        </span><span style=color:#f92672;>if not </span><span>self.root:
+</span><span>            </span><span style=color:#f92672;>return </span><span>res
+</span><span>
+</span><span>        </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>_inner</span><span>(</span><span style=font-style:italic;color:#fd971f;>root</span><span>):
+</span><span>            inner_res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>            </span><span style=color:#f92672;>if </span><span>root.value:
+</span><span>                inner_res.append(root.value)
+</span><span>                </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>root.children:
+</span><span>                    inner_res </span><span style=color:#f92672;>+= </span><span>_inner(sub_node)
+</span><span>            </span><span style=color:#f92672;>return </span><span>inner_res
+</span><span>        </span><span style=color:#f92672;>return </span><span>_inner(self.root)
+</span></code></pre><h2 id=后序遍历>后序遍历</h2><p>先遍历孩子节点，最后遍历根节点。<p><img alt=后序遍历 src=https://eindex.me/posts/tree-in-python/media/15231560956719/%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86.jpg><h3 id=循环版-1>循环版</h3><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>postorder_traversal_while</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>        树的后序遍历
+</span><span style=color:#75715e;>        :return: list of tree node value
+</span><span style=color:#75715e;>        """
+</span><span>        res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>
+</span><span>        </span><span style=color:#f92672;>if not </span><span>self.root:
+</span><span>            </span><span style=color:#f92672;>return </span><span>res
+</span><span>
+</span><span>        stack </span><span style=color:#f92672;>= </span><span>[self.root]
+</span><span>
+</span><span>        </span><span style=color:#f92672;>while </span><span style=color:#66d9ef;>len</span><span>(stack):
+</span><span>            node </span><span style=color:#f92672;>= </span><span>stack.pop()
+</span><span>            </span><span style=color:#f92672;>if not </span><span>node.value:
+</span><span>                </span><span style=color:#f92672;>continue
+</span><span>            </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>node.children:
+</span><span>                stack.append(sub_node)
+</span><span>            res.append(node.value)
+</span><span>
+</span><span>        </span><span style=color:#f92672;>return </span><span>res[::</span><span style=color:#f92672;>-</span><span style=color:#ae81ff;>1</span><span>]
+</span></code></pre><h3 id=递归版-1>递归版</h3><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span>   </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>postorder_traversal_recursion</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>        树的后序遍历
+</span><span style=color:#75715e;>        :return: list of tree node value
+</span><span style=color:#75715e;>        """
+</span><span>        res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>        </span><span style=color:#f92672;>if not </span><span>self.root:
+</span><span>            </span><span style=color:#f92672;>return </span><span>res
+</span><span>
+</span><span>        </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>_inner</span><span>(</span><span style=font-style:italic;color:#fd971f;>root</span><span>):
+</span><span>            inner_res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>            </span><span style=color:#f92672;>if </span><span>root.value:
+</span><span>                </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>root.children:
+</span><span>                    inner_res </span><span style=color:#f92672;>+= </span><span>_inner(sub_node)
+</span><span>                inner_res.append(root.value)
+</span><span>            </span><span style=color:#f92672;>return </span><span>inner_res
+</span><span>
+</span><span>        </span><span style=color:#f92672;>return </span><span>_inner(self.root)
+</span><span>
+</span></code></pre><h2 id=层次遍历>层次遍历</h2><p>按层遍历节点。 <img alt=层序遍历 src=https://eindex.me/posts/tree-in-python/media/15231560956719/%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86.jpg><h3 id=循环版-2>循环版</h3><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>layer_while</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=color:#75715e;>"""
+</span><span style=color:#75715e;>        树的层序遍历
+</span><span style=color:#75715e;>        :return: list of tree node value
+</span><span style=color:#75715e;>        """
+</span><span>        res </span><span style=color:#f92672;>= </span><span>[]
+</span><span>        </span><span style=color:#f92672;>if not </span><span>self.root:
+</span><span>            </span><span style=color:#f92672;>return </span><span>res
+</span><span>
+</span><span>        queue </span><span style=color:#f92672;>= </span><span>Queue()
+</span><span>        queue.put(self.root)
+</span><span>
+</span><span>        </span><span style=color:#f92672;>while </span><span>queue.qsize():
+</span><span>            node </span><span style=color:#f92672;>= </span><span>queue.get()
+</span><span>            </span><span style=color:#f92672;>if not </span><span>node.value:
+</span><span>                </span><span style=color:#f92672;>continue
+</span><span>            res.append(node.value)
+</span><span>            </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>node.children:
+</span><span>                queue.put(sub_node)
+</span><span>        </span><span style=color:#f92672;>return </span><span>res
+</span></code></pre><h2 id=求树的深度>求树的深度</h2><p>计算树的最大深度。<pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span> </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>depth_recursion</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>
+</span><span>        </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>_inner</span><span>(</span><span style=font-style:italic;color:#fd971f;>root</span><span>, </span><span style=font-style:italic;color:#fd971f;>depth</span><span style=color:#f92672;>=</span><span style=color:#ae81ff;>1</span><span>):
+</span><span>            </span><span style=color:#f92672;>if not </span><span>root.children:
+</span><span>                </span><span style=color:#f92672;>return </span><span>depth
+</span><span>            </span><span style=color:#f92672;>return </span><span style=color:#66d9ef;>max</span><span>([_inner(sub_node, depth</span><span style=color:#f92672;>+</span><span style=color:#ae81ff;>1</span><span>) </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>root.children])
+</span><span>
+</span><span>        </span><span style=color:#f92672;>return </span><span>_inner(self.root)
+</span></code></pre><h2 id=求树的结点数>求树的结点数</h2><p>计算树一共有多少节点。<pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span> </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>node_count</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>_inner</span><span>(</span><span style=font-style:italic;color:#fd971f;>root</span><span>):
+</span><span>            </span><span style=color:#f92672;>if not </span><span>root.children:
+</span><span>                </span><span style=color:#f92672;>return </span><span style=color:#ae81ff;>1
+</span><span>            </span><span style=color:#f92672;>return </span><span style=color:#ae81ff;>1 </span><span style=color:#f92672;>+ </span><span style=color:#66d9ef;>sum</span><span>([_inner(sub_node) </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>root.children])
+</span><span>        </span><span style=color:#f92672;>return </span><span>_inner(self.root)
+</span></code></pre><h2 id=求树的叶子数>求树的叶子数</h2><p>计算书中有多少没有孩子的节点。<pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>leaf_count</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>):
+</span><span>        </span><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>_inner</span><span>(</span><span style=font-style:italic;color:#fd971f;>root</span><span>):
+</span><span>            </span><span style=color:#f92672;>if not </span><span>root.children:
+</span><span>                </span><span style=color:#f92672;>return </span><span style=color:#ae81ff;>1
+</span><span>            </span><span style=color:#f92672;>return </span><span style=color:#66d9ef;>sum</span><span>([_inner(sub_node) </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>root.children])
+</span><span>        </span><span style=color:#f92672;>return </span><span>_inner(self.root)
+</span></code></pre><h2 id=求两个结点的最低公共祖先结点>求两个结点的最低公共祖先结点</h2><p>首先需要在树中找到两个结点。 保存找到两个节点的链表。 遍历两个链表的最长公共节点，就能找到最低的公共祖先节点。 <img alt=最低公共祖先节点 src=https://eindex.me/posts/tree-in-python/media/15231560956719/%E6%9C%80%E4%BD%8E%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88%E8%8A%82%E7%82%B9.jpg><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>lowest_ancestor_node</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>, </span><span style=font-style:italic;color:#fd971f;>node1</span><span>, </span><span style=font-style:italic;color:#fd971f;>node2</span><span>):
+</span><span>        stack </span><span style=color:#f92672;>= </span><span>[self.root]
+</span><span>        stack1 </span><span style=color:#f92672;>= </span><span style=color:#ae81ff;>None
+</span><span>        stack2 </span><span style=color:#f92672;>= </span><span style=color:#ae81ff;>None
+</span><span>
+</span><span>        </span><span style=color:#f92672;>while </span><span style=color:#66d9ef;>len</span><span>(stack) </span><span style=color:#f92672;>and not </span><span>(stack1 </span><span style=color:#f92672;>and </span><span>stack2):
+</span><span>            node </span><span style=color:#f92672;>= </span><span>stack.pop()
+</span><span>
+</span><span>            </span><span style=color:#f92672;>if </span><span>node </span><span style=color:#f92672;>is </span><span>node1:
+</span><span>                stack1 </span><span style=color:#f92672;>= </span><span>stack[:]
+</span><span>            </span><span style=color:#f92672;>if </span><span>node </span><span style=color:#f92672;>is </span><span>node2:
+</span><span>                stack2 </span><span style=color:#f92672;>= </span><span>stack[:]
+</span><span>            </span><span style=color:#f92672;>if not </span><span>node.value:
+</span><span>                </span><span style=color:#f92672;>continue
+</span><span>            </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>node.children:
+</span><span>                stack.append(sub_node)
+</span><span>
+</span><span>        res </span><span style=color:#f92672;>= </span><span>self.root
+</span><span>        </span><span style=color:#f92672;>for </span><span>i </span><span style=color:#f92672;>in </span><span style=color:#66d9ef;>range</span><span>(</span><span style=color:#66d9ef;>len</span><span>(stack1)):
+</span><span>            </span><span style=color:#f92672;>if </span><span>stack1[i] </span><span style=color:#f92672;>== </span><span>stack2[i]:
+</span><span>                res </span><span style=color:#f92672;>= </span><span>stack1[i]
+</span><span>            </span><span style=color:#f92672;>else</span><span>:
+</span><span>                </span><span style=color:#f92672;>return </span><span>res.value
+</span><span>
+</span><span>        </span><span style=color:#f92672;>return </span><span>res.value
+</span></code></pre><h2 id=求任意两结点距离>求任意两结点距离</h2><p>首先需要在树中找到两个结点。 保存找到两个节点的链表。 在判断剩余的长度 <img alt=任意两节点距离 src=https://eindex.me/posts/tree-in-python/media/15231560956719/%E4%BB%BB%E6%84%8F%E4%B8%A4%E8%8A%82%E7%82%B9%E8%B7%9D%E7%A6%BB.jpg><pre class=language-python data-lang=python style=background-color:#272822;color:#f8f8f2;><code class=language-python data-lang=python><span style=font-style:italic;color:#f92672;>def </span><span style=color:#a6e22e;>two_node_distence</span><span>(</span><span style=font-style:italic;color:#fd971f;>self</span><span>, </span><span style=font-style:italic;color:#fd971f;>node1</span><span>, </span><span style=font-style:italic;color:#fd971f;>node2</span><span>):
+</span><span>        stack </span><span style=color:#f92672;>= </span><span>[self.root]
+</span><span>        stack1 </span><span style=color:#f92672;>= </span><span style=color:#ae81ff;>None
+</span><span>        stack2 </span><span style=color:#f92672;>= </span><span style=color:#ae81ff;>None
+</span><span>
+</span><span>        </span><span style=color:#f92672;>while </span><span style=color:#66d9ef;>len</span><span>(stack) </span><span style=color:#f92672;>and not </span><span>(stack1 </span><span style=color:#f92672;>and </span><span>stack2):
+</span><span>            node </span><span style=color:#f92672;>= </span><span>stack.pop()
+</span><span>
+</span><span>            </span><span style=color:#f92672;>if </span><span>node </span><span style=color:#f92672;>is </span><span>node1:
+</span><span>                stack1 </span><span style=color:#f92672;>= </span><span>stack[:]
+</span><span>            </span><span style=color:#f92672;>if </span><span>node </span><span style=color:#f92672;>is </span><span>node2:
+</span><span>                stack2 </span><span style=color:#f92672;>= </span><span>stack[:]
+</span><span>            </span><span style=color:#f92672;>if not </span><span>node.value:
+</span><span>                </span><span style=color:#f92672;>continue
+</span><span>            </span><span style=color:#f92672;>for </span><span>sub_node </span><span style=color:#f92672;>in </span><span>node.children:
+</span><span>                stack.append(sub_node)
+</span><span>
+</span><span>        res </span><span style=color:#f92672;>= </span><span>self.root
+</span><span>        </span><span style=color:#f92672;>for </span><span>i </span><span style=color:#f92672;>in </span><span style=color:#66d9ef;>range</span><span>(</span><span style=color:#66d9ef;>len</span><span>(stack1)):
+</span><span>            </span><span style=color:#f92672;>if </span><span>stack1[i] </span><span style=color:#f92672;>== </span><span>stack2[i]:
+</span><span>                res </span><span style=color:#f92672;>= </span><span>stack1[i]
+</span><span>            </span><span style=color:#f92672;>else</span><span>:
+</span><span>                </span><span style=color:#f92672;>return </span><span style=color:#66d9ef;>len</span><span>(stack1) </span><span style=color:#f92672;>+ </span><span style=color:#66d9ef;>len</span><span>(stack2) </span><span style=color:#f92672;>- </span><span style=color:#ae81ff;>2</span><span style=color:#f92672;>*</span><span>i
+</span><span>
+</span><span>        </span><span style=color:#f92672;>return </span><span style=color:#66d9ef;>len</span><span>(stack1) </span><span style=color:#f92672;>+ </span><span style=color:#66d9ef;>len</span><span>(stack2) </span><span style=color:#f92672;>- </span><span style=color:#ae81ff;>2</span><span style=color:#f92672;>*</span><span>i
+</span><span>
+</span></code></pre><h2 id=综述>综述</h2><p>以上就是和树有关联的简单代码。 以上代码也在 Github 上发布 <a href=https://github.com/EINDEX/Python-algorithm/blob/master/data_structure/tree/tree.py>tree</a>， 如有差错，欢迎提交 Issue 或 PR。<h2 id=更新>更新</h2><ul><li>修复图片的 Bug</ul></section><section class=post-footer><div class=tags><i class="fa-solid fa-tags"></i><span class=tag><a>Python</a></span></div></section><section class=comments><script async crossorigin=anonymous data-category-id=DIC_kwDOGWb6Ys4CAKn- data-emit-metadata=0 data-lang=zh-CN data-mapping=pathname data-reactions-enabled=1 data-repo=EINDEX/blog data-repo-id=R_kgDOGWb6Yg data-theme=light src=https://giscus.app/client.js></script></section></article></main><aside></aside></div><footer class=footer><div class=content><div class=item></div><div class=item></div><div class="item profile"><img class=avatar src=/images/avatar.png><ul class=links><li><a href=https://github.com/eindex rel=me target=_blank><i class="fab fa-github"></i><span>Github</span> </a><li><a href=https://twitter.com/eindex_li rel=me target=_blank><i class="fab fa-twitter"></i><span>Twitter</span> </a><li><a href=https://t.me/eindex rel=me target=_blank><i class="fab fa-telegram"></i><span>Telegram</span> </a><li><a href=mailto:eindex.me@outlook.com rel=me target=_blank><i class="fas fa-envelope"></i><span>Email</span> </a></ul></div></div><span class=webring> <a href=https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/previous>←</a> An IndieWeb Webring 🕸💍 <a href=https://xn--sr8hvo.ws/%F0%9F%95%90%F0%9F%89%91%F0%9F%88%B6/next>→</a> </span><a class=powered-by href=https://github.com/EINDEX/qingzhuo target=_blank>Powered By QingZhuo </a></footer>

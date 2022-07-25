@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>EINDEX&#x27;s Blog</title>
+  <link>https://eindex.me/feed.xml</link>
+  <description></description>
+  <atom:link href="https://eindex.me/feed.xml" rel="self" type="application/rss+xml"/>
+
+  
+  <item>
+    <title>My HomeLab</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;my-homelab-introduce&#x2F;</link>
+    <pubDate>Sun, 15 May 2022 23:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;my-homelab-introduce&#x2F;</guid>
+    <description>&lt;p&gt;这篇文章将会介绍一下我的 HomeLab。&lt;&#x2F;p&gt;
+&lt;p&gt;为什么会建设 HomeLab，它给我带来了什么价值？以及为什么是现在的结构，解决了什么问题。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;my-homelab-introduce&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>反躬自问</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;introspection&#x2F;</link>
+    <pubDate>Mon, 02 May 2022 17:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;introspection&#x2F;</guid>
+    <description>&lt;h2 id=&quot;缘起&quot;&gt;缘起&lt;&#x2F;h2&gt;
+&lt;p&gt;事情还得从一次因防疫政策变化导致的“特殊”出差说起。&lt;&#x2F;p&gt;
+&lt;p&gt;人在远离舒适圈的时候，总会经历种种困难与不适，噪音、拥挤、打卡、隔离、被缩短的工期、不合理的政策……都让“出差”成为了一项挑战，而“疫情”和“三年第一次出差”，这两重因素的叠加，更让我对这次出差中将面临的未知感到恐惧，这种恐惧甚至大于好奇。&lt;&#x2F;p&gt;
+&lt;p&gt;下面我会尝试用“自我问答”的方式，记录这次出差的体验与感想。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;introspection&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>2021 Ending</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;2021-ending&#x2F;</link>
+    <pubDate>Wed, 29 Dec 2021 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;2021-ending&#x2F;</guid>
+    <description>&lt;p&gt;2021年就要过去了，分享一下我今年都干了些什么事请。
+下面会分为几个维度来说。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;职业&quot;&gt;职业&lt;&#x2F;h2&gt;
+&lt;p&gt;今年无缝转职成了安全从业人员，学习到了很多 DevSecOps 的知识，同时了解到安全不仅仅是技术开发，有时候流程安全能比应用安全起到更多更大的作用。这里也要感谢一下我的领导们。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;2021-ending&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>复式记账工具 Beancount</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;beancount-introduce&#x2F;</link>
+    <pubDate>Sat, 30 Nov 2019 00:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;beancount-introduce&#x2F;</guid>
+    <description>&lt;p&gt;本文简单介绍一下复式记账和 Beancount 的使用方法。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;beancount-introduce&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>一百行代码实现异步爬虫</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;one-hundred-line-async-crawler&#x2F;</link>
+    <pubDate>Sat, 07 Sep 2019 12:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;one-hundred-line-async-crawler&#x2F;</guid>
+    <description>&lt;p&gt;一个优雅的爬虫需要一下这些东西：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;请求器&lt;&#x2F;li&gt;
+&lt;li&gt;页面解析器&lt;&#x2F;li&gt;
+&lt;li&gt;链接生成器&lt;&#x2F;li&gt;
+&lt;li&gt;调度器&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;one-hundred-line-async-crawler&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>《1984》读后感</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;1984-after-reading&#x2F;</link>
+    <pubDate>Mon, 02 Sep 2019 23:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;1984-after-reading&#x2F;</guid>
+    <description>&lt;p&gt;这本书看了很久了，下面这句话一直环绕在我脑中，始终不能忘记。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“老大哥在看着你。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;1984-after-reading&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>倒排索引</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;inverted-index&#x2F;</link>
+    <pubDate>Tue, 27 Aug 2019 12:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;inverted-index&#x2F;</guid>
+    <description>&lt;p&gt;世界上最伟大的互联网产品,说是搜索引擎,绝对没有别的产品可以替代,尤其是伟大的先在市场占用率最高的搜索引擎,Google Search.&lt;&#x2F;p&gt;
+&lt;p&gt;还有很多差一大截的,比如 Bing, Yahoo 和 YANDEX.&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;inverted-index&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>Thoughtworks 一月</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;thoughworks-one-month&#x2F;</link>
+    <pubDate>Mon, 08 Jul 2019 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;thoughworks-one-month&#x2F;</guid>
+    <description>&lt;p&gt;距离加入 Thoughtworks 已有一个月。
+这家公司也并非互联网公司，没有高强度的工作节奏，没有996，有一些敏捷信仰。
+对于武汉来说，也算是一个优秀的公司。&lt;&#x2F;p&gt;
+&lt;p&gt;同时正如网上所言：该有的缺点也是有的。好奇的同学可以去看一下我的编程引路人（也是我司黑粉头子）耗子叔（陈皓）的文章。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;thoughworks-one-month&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>Tornado Auto Etag 机制</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;tornado-auto-etag&#x2F;</link>
+    <pubDate>Wed, 24 Apr 2019 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;tornado-auto-etag&#x2F;</guid>
+    <description>&lt;p&gt;为了研究缓存看了 tornado &lt;code&gt;web.py&lt;&#x2F;code&gt; 里的 &lt;code&gt;finish&lt;&#x2F;code&gt; 函数&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;tornado-auto-etag&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>Pipenv + Autoenv 更友善的工作环境</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;pipenv-autoenv&#x2F;</link>
+    <pubDate>Wed, 05 Sep 2018 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;pipenv-autoenv&#x2F;</guid>
+    <description>&lt;p&gt;Python 包管理一直都是一个问题，如今 3.6 推荐采用 Pipenv 出自 Requests 的大牛做所。配合上他写的 Autoenv 切换环境再也不是问题。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;pipenv-autoenv&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>KMP 算法</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;kmp&#x2F;</link>
+    <pubDate>Fri, 11 May 2018 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;kmp&#x2F;</guid>
+    <description>&lt;blockquote&gt;
+&lt;p&gt;在计算机科学中，Knuth-Morris-Pratt字符串查找算法（简称为KMP算法）可在一个主文本字符串S内查找一个词W的出现位置。此算法通过运用对这个词在不匹配时本身就包含足够的信息来确定下一个匹配将在哪里开始的发现，从而避免重新检查先前匹配的字符。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;kmp&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>Tree in Python</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;tree-in-python&#x2F;</link>
+    <pubDate>Sun, 08 Apr 2018 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;tree-in-python&#x2F;</guid>
+    <description>&lt;p&gt;树是计算机科学中常用的数据结构之一,常见的地方有，Java 的继承树等。
+还有一些基于树的特殊数据结构，比如二叉树，B 树，等等。&lt;&#x2F;p&gt;
+&lt;p&gt;本篇会讲述一些关于简单关于树的操作。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;tree-in-python&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>基本排序算法的Python实现</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;sort-in-python&#x2F;</link>
+    <pubDate>Thu, 05 Oct 2017 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;sort-in-python&#x2F;</guid>
+    <description>&lt;p&gt;本篇主要实现九(八）大排序算法，分别是冒泡排序，插入排序，选择排序，希尔排序，归并排序，快速排序，堆排序,计数排序。希望大家回顾知识的时候也能从我的这篇文章得到帮助。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;sort-in-python&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>基本线性数据结构的Python实现</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;liner-in-python&#x2F;</link>
+    <pubDate>Thu, 05 Oct 2017 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;liner-in-python&#x2F;</guid>
+    <description>&lt;p&gt;本篇主要实现四种数据结构，分别是数组、堆栈、队列、链表。我不知道我为什么要用Python来干C干的事情，总之Python就是可以干。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;liner-in-python&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+  <item>
+    <title>小白也能上手的 ArchLinux 安装教程</title>
+    <link>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;archlinux-install-guide&#x2F;</link>
+    <pubDate>Thu, 05 Oct 2017 14:00:00 +0800</pubDate>
+    <guid>https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;archlinux-install-guide&#x2F;</guid>
+    <description>&lt;p&gt;ArchLinux 是一个非常符合我个人哲学的操作系统，深得与我一样的大部分 Pythonista 之心(不好意思代表你们了)。&lt;&#x2F;p&gt;
+<br/><a href="https:&#x2F;&#x2F;eindex.me&#x2F;posts&#x2F;archlinux-install-guide&#x2F;#continue-reading">Continue Reading</a></description>
+  </item>
+  
+</channel>
+</rss>
